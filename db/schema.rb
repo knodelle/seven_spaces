@@ -10,10 +10,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_25_165142) do
+ActiveRecord::Schema.define(version: 2019_11_25_172628) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "chat_room_tags", force: :cascade do |t|
+    t.bigint "chat_room_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chat_room_id"], name: "index_chat_room_tags_on_chat_room_id"
+    t.index ["tag_id"], name: "index_chat_room_tags_on_tag_id"
+  end
+
+  create_table "chat_rooms", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.bigint "chat_room_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chat_room_id"], name: "index_messages_on_chat_room_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.string "status"
+    t.string "description"
+    t.bigint "chat_room_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chat_room_id"], name: "index_subscriptions_on_chat_room_id"
+    t.index ["user_id"], name: "index_subscriptions_on_user_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +69,10 @@ ActiveRecord::Schema.define(version: 2019_11_25_165142) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "chat_room_tags", "chat_rooms"
+  add_foreign_key "chat_room_tags", "tags"
+  add_foreign_key "messages", "chat_rooms"
+  add_foreign_key "messages", "users"
+  add_foreign_key "subscriptions", "chat_rooms"
+  add_foreign_key "subscriptions", "users"
 end

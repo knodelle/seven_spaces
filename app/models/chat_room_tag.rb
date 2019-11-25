@@ -1,0 +1,2 @@
+class ChatRoomTag < ApplicationRecord
+end

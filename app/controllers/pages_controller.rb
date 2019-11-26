@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   end
 
   def search
-    redirect_to my_chat_rooms_path unless curent_user.chat_rooms.empty?
+    raise
+    # redirect_to my_chat_rooms_path unless current_user.chat_rooms.empty?
   end
 end

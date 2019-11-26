@@ -1,9 +1,24 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="wrap">
+  <div class="container">
+    <%= link_to search_path do  %>
+      <h4>Chercher une chat room </h4>
+    <% end %>
 
-<%# @chat_rooms.each do |chat_room| %>
-  <%#= link_to "#{chat_room.title }", my_chat_room_path(chat_room) %>
-<%# end %>
+    <%= link_to my_chat_rooms_path do  %>
+      <h4>Mes chat rooms</h4>
+    <% end %>
+  </div>
+</div>
 
-
-<%#= link_to "chat room index", chat_rooms_path %>
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+  </div>
+</div>

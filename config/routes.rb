@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#home'
+  root to: 'pages#search'
   get '/search', to: 'pages#search'
+  get '/home', to: 'pages#home', as: "home"
+
+
   resources :subscriptions, only: [ :show, :update ]
   resources :chat_rooms, only: :index
   namespace :my do

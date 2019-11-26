@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $pale-green;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +9,10 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.logo-seven {
+  color: black;
+  font-size: 35px;
+  font-weight: bold;
 }

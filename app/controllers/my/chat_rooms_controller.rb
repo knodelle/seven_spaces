@@ -1,13 +1,9 @@
 class My::ChatRoomsController < ApplicationController
-  before_action :set_chat_room, only: [:show, :edit, :update, :destroy]
+  before_action :set_chat_room, only: [:edit, :update, :destroy]
 
   def index
     @chat_rooms = ChatRoom.where(user: current_user)
     @sub = Subscription.where(user: current_user)
-  end
-
-  def show
-
   end
 
   def new
@@ -19,7 +15,7 @@ class My::ChatRoomsController < ApplicationController
     if @chat_room.save
       redirect_to chat_room_path(@chat_room)
      else
-       render :show
+       render :new
     end
   end
 
@@ -48,7 +44,7 @@ class My::ChatRoomsController < ApplicationController
   end
 
   def chat_room_params
-    params.require(:chat_rooms).permit(:title, :description)
+    params.require(:chat_room).permit(:title, :description)
   end
 
 

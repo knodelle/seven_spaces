@@ -1,0 +1,5 @@
+<h2>Demande d'abonnement au salon <%= @subscription.chat_room.title %></h2>
+<p>Status de la demande : <%= @subscription.status %></p>
+
+<%= link_to "Accepter" , subscription_path(@subscription, subscription: {status: 'Accepted'}), method: :patch, class: "btn btn-primary" %>
+<%= link_to "Refuser" , subscription_path(@subscription, subscription: {status: 'Refused'}), method: :patch, class: "btn btn-primary" %>

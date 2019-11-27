@@ -1,0 +1,7 @@
+<h1>Index my subs</h1>
+
+<% @subscriptions.each do |subscription| %>
+  <%= subscription.chat_room.title %>
+  <%= subscription.status %>
+  <%= link_to "Détails", my_subscription_path(subscription)  %>
+<% end %>

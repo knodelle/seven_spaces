@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts 'Starting ....'
+
+puts 'creating users ...'
+adrien = User.create(email: 'adrien.peres@gmail.com', password: 'azerty')
+puts 'users done !'
+puts 'creating chat rooms...'
+ChatRoom.create(title: 'Chat room 1', description: 'lorem ipsum')
+puts 'chat rooms created !'
+
+puts 'completed !'
+

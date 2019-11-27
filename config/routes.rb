@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#home'
+  get '/search', to: 'pages#search'
+  root to: 'pages#home', as: "home"
 
   resources :subscriptions, only: [ :show, :update ]
   resources :chat_rooms, only: :index do

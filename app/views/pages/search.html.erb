@@ -1,25 +1,9 @@
 
-
-
-
-  <%= simple_form_for @chat_room do |f| %>
+<%= simple_form_for @chat_rooms do |f| %>
   <!-- code pour faire un multiselector mais pas qui n'est pas adapté au "plant_tags#create" -->
   <%= f.association :tags, as: :check_boxes %>
   <%= f.button :submit, "Trouver une chatroom" %>
 <% end %>
 
 
-<!-- <div class="form-group">
-  <label class="control-label check_boxes optional">Categories</label>
-  <input type="hidden" name="post[category_ids][]" value="">
-  <div class="category-choices">
-    <% #Category.all.each do |category| %>
-      <input type="checkbox" class="hidden" value="<%= category.id %>" name="post[category_ids][]" id="post_category_ids_<%= category.id %>">
-      <label for="post_category_ids_<%= category.id %>">
-        <%= #category.name %>
-        <i class="fa fa-check"></i>
-      </label>
-    <% #end %>
-   </div>
-</div>
- -->
+

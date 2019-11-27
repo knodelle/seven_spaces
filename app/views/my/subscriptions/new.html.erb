@@ -1,0 +1,20 @@
+<div class="container">
+  <h3><%= @chat_room.title %></h3>
+  <%= simple_form_for [@chat_room, :my, @subscription] do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <div>
+        <%= @chat_room.description %>
+      </div>
+      <%= f.input :description %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, "Envoyer une demande" %>
+    </div>
+  <% end %>
+
+  <%= link_to "Retour", :back %>
+
+</div>

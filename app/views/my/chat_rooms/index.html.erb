@@ -1,17 +1,44 @@
-<h1>index namespace</h1>
+<h1>Voici la liste de vos salons</h1>
+<p>Modifier, supprimer, ou, créer... C'est ici que ça se passe !</p>
 
-<ul>
-  <% if @chat_rooms == [] && @subscriptions == []  %>
-    <h4>Vous n'avez pas créer/rejoins de chat room </h4>
-  <% elsif @chat_rooms.length < 0 && @subscriptions < 0  %>
+<h3>Salons</h3>
+<% if @chat_rooms == []  %>
+  <h4>Vous n'avez pas créer de salon... qu'attendez vous ? <i class="far fa-laugh-wink"></i> </h4>
+<% else %>
+  <ul>
     <% @chat_rooms.each do |chat_room| %>
-      <h3>Vos chat rooms</h3>
-      <li><%= chat_room.title %></li>
+      <li>
+        <div>
+        <%= chat_room.title %>
+        <%= link_to "Editer le salon" , edit_my_chat_room_path(chat_room) %> <%= link_to "supprimer", my_chat_room_path(chat_room), method: :delete, class: "fa fa-trash link"  %>
+        <%= link_to "Voir les demandes d'abonnement", chat_room_subscriptions_path(chat_room)  %>
+        <% if chat_room.user_id == current_user.id %>
+          <p>Master</p>
+        <% end %>
+        </div>
+      </li>
     <% end %>
-    <% @subscriptions.each do |subscription| %>
-      <li><%= subscription.title %></li>
-    <% end %>
-  <% elsif @chat_rooms %>
-</ul>
+  </ul>
+<% end %>
 
 <%= link_to "create a room", new_my_chat_room_path  %>
+
+<h3>Abonnements</h3>
+<% if @subscriptions == []  %>
+  <h4>Vous n'avez pas rejoint de chat room... lancez vous ! <i class="fas fa-rocket"></i> </h4>
+<% else %>
+  <ul>
+    <% @subscriptions.where(status: 'Accepted').each do |subscription| %>
+      <li>
+        <div>
+          <%= subscription.chat_room.title %>
+          <%= link_to "Quitter le salon" , my_subscription_path(subscription), method: :delete, class: "fas fa-door-open"%>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  <% pluriel = @subscriptions.where(status: 'pending').size > 1 ? "s" : ""  %>
+  <p>Vous avez <strong><%= @subscriptions.where(status: 'pending').size %></strong> abonnement<%= pluriel %> en attente.</p>
+<% end %>
+<%= link_to "Rechercher un salon", search_path %>
+

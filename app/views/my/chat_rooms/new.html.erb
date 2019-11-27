@@ -1,1 +1,16 @@
-<h1>new namespace</h1>
+<h1>Créer une chat room</h1>
+
+<%= simple_form_for [:my, @chat_room] do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title, label: "Titre" %>
+    <%= f.input :description, label: "ajoutez une description", placeholder: "Quelles sont les règles a suivre dans votre chat room ? Quels en sont les critères d'entrée ?"  %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Créer" %>
+  </div>
+<% end %>
+
+<%= link_to "Retour", :back %>

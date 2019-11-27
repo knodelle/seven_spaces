@@ -1,4 +1,12 @@
 class My::SubscriptionsController < ApplicationController
+  before_action :set_subscription, only: [:show, :destroy, :edit, :update]
+  def index
+    @subscriptions = Subscription.where(user_id: current_user.id)
+  end
+
+  def show
+  end
+
   def new
     @subscription = Subscription.new
     @chat_room = ChatRoom.find(params[:chat_room_id])
@@ -24,15 +32,15 @@ class My::SubscriptionsController < ApplicationController
   end
 
   def destroy
-    @subscription = Subscription.find(params[:id])
     @subscription.destroy
     redirect_to my_chat_rooms_path
   end
 
   private
 
-  # def set_subscription
-  # end
+  def set_subscription
+    @subscription = Subscription.find(params[:id])
+  end
 
   def subscription_params
     params.require(:subscription).permit(:description)

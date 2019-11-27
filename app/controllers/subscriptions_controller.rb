@@ -3,7 +3,8 @@ class SubscriptionsController < ApplicationController
 
   def index
     @chat_room = ChatRoom.find(params[:chat_room_id])
-    @subscriptions = Subscription.where(chat_room_id: @chat_room)
+    sql_query = "chat_room_id = ? AND status = 'pending'"
+    @subscriptions = Subscription.where(sql_query, @chat_room)
   end
 
   def show
@@ -11,7 +12,7 @@ class SubscriptionsController < ApplicationController
 
   def update
     if @subscription.update(subscription_params)
-      redirect_to subscription_path(@subscription)
+      redirect_to chat_room_subscriptions_path(@subscription)
     else
       render :show
     end

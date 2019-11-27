@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
   namespace :my do
     resources :chat_rooms
-    resources :subscriptions, only: :destroy
+    resources :subscriptions, only: [:destroy, :show, :edit, :update, :index]
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

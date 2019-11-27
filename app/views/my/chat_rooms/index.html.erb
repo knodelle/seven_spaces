@@ -38,7 +38,8 @@
     <% end %>
   </ul>
   <% pluriel = @subscriptions.where(status: 'pending').size > 1 ? "s" : ""  %>
-  <p>Vous avez <strong><%= @subscriptions.where(status: 'pending').size %></strong> abonnement<%= pluriel %> en attente.</p>
+  <p>Vous avez <strong><%= @subscriptions.where(status: 'pending').size %></strong> abonnement<%= pluriel %> en attente. <%= link_to "Les voirs", my_subscriptions_path  %></p>
 <% end %>
+
 <%= link_to "Rechercher un salon", search_path %>
 

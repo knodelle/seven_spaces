@@ -1,2 +1,8 @@
 <h1>Abonnements en attente</h1>
 
+<% @subscriptions.each do |subscription| %>
+  <p> <%= subscription.user.email %></p>
+  <p> <%= subscription.description.first(10) %>... <%= link_to "en savoir plus...", subscription_path(subscription)  %></p>
+<% end %>
+
+<%= link_to "Retour", my_chat_rooms_path %>

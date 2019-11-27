@@ -29,6 +29,11 @@ class My::SubscriptionsController < ApplicationController
   end
 
   def update
+    if @subscription.update(subscription_params)
+      redirect_to my_subscription_path(@subscription)
+    else
+      render :edit
+    end
   end
 
   def destroy

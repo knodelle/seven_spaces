@@ -1,5 +1,17 @@
 <h1>index namespace</h1>
 
-<%= link_to   %>
+<ul>
+  <% if @chat_rooms == [] && @subscriptions == []  %>
+    <h4>Vous n'avez pas créer/rejoins de chat room </h4>
+  <% elsif @chat_rooms.length < 0 && @subscriptions < 0  %>
+    <% @chat_rooms.each do |chat_room| %>
+      <h3>Vos chat rooms</h3>
+      <li><%= chat_room.title %></li>
+    <% end %>
+    <% @subscriptions.each do |subscription| %>
+      <li><%= subscription.title %></li>
+    <% end %>
+  <% elsif @chat_rooms %>
+</ul>
 
-each => tes chatsroom
+<%= link_to "create a room", new_my_chat_room_path  %>

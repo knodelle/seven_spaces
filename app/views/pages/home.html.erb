@@ -1,11 +1,15 @@
 <div class="wrap">
   <div class="container">
-    <%= link_to root_path do  %>
+    <%= link_to search_path do  %>
       <h4>Chercher une chat room </h4>
     <% end %>
 
     <%= link_to my_chat_rooms_path do  %>
       <h4>Mes chat rooms</h4>
+    <% end %>
+
+    <%= link_to chat_rooms_path do  %>
+      <h4>Liste des chat rooms</h4>
     <% end %>
   </div>
 </div>

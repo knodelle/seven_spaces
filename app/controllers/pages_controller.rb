@@ -6,6 +6,9 @@ class PagesController < ApplicationController
   end
 
   def search
+    @tags = Tag.all
+    @chat_room = ChatRoom.new
+
     # redirect_to my_chat_rooms_path unless curent_user.chat_rooms.empty?
     # db tag chercher celui qui correspond chat_rooms_tag.where(tag.name == query)
   end

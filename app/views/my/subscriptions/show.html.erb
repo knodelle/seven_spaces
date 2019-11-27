@@ -1,0 +1,5 @@
+<h1>Votre demande</h1>
+<%= @subscription.chat_room.title %>
+<%= @subscription.description %>
+<%= link_to "Modifier votre demande", edit_my_subscription_path(@subscription) %>
+<%= @subscription.status %>

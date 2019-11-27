@@ -12,8 +12,9 @@ class My::ChatRoomsController < ApplicationController
 
   def create
     @chat_room = ChatRoom.new(chat_room_params)
+    @chat_room.user_id = current_user.id
     if @chat_room.save
-      redirect_to chat_room_path(@chat_room)
+      redirect_to my_chat_rooms_path(@chat_room)
     else
       render :new
     end
@@ -24,7 +25,7 @@ class My::ChatRoomsController < ApplicationController
 
   def update
     if @chat_room.update(chat_room_params)
-      redirect_to chat_room_path(@chat_room)
+      redirect_to my_chat_rooms_path(@chat_room)
     else
       render :edit
     end
@@ -32,7 +33,7 @@ class My::ChatRoomsController < ApplicationController
 
   def destroy
     @chat_room.destroy
-    redirect_to chat_room_path(@chat_room), notice: 'The chatroom has been deleted.'
+    redirect_to my_chat_rooms_path(@chat_room), notice: 'The chatroom has been deleted.'
   end
 
   private

@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users
   get '/search', to: 'pages#search'
+
+  # search by tags
+  # get 'search/:tag', to: 'static#home', as: "search"
+
   root to: 'pages#home', as: "home"
 
   resources :subscriptions, only: [ :show, :update ]
-  resources :chat_rooms, only: :index do
+  resources :chat_room_tags, only: [ :new, :create ] # ??
+  resources :chat_rooms, only: [:index] do
     namespace :my do
       resources :subscriptions, only: [ :new, :create ]
     end

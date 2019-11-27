@@ -1,0 +1,9 @@
+
+<h1>Ajouter un tag</h1>
+
+<%= simple_form_for [@plant, @plant_tag] do |f| %>
+  <%= f.input :tag_id, collection: Tag.all %>
+  <!-- code pour faire un multiselector mais pas qui n'est pas adapté au "plant_tags#create" -->
+  <%#= f.input :tag_id, collection: Tag.all, input_html: { multiple: true } %>
+  <%= f.button :submit %>
+<% end %>

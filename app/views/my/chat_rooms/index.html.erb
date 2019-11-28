@@ -44,6 +44,7 @@
             <li>
               <div class="card">
                 <%= subscription.chat_room.title %>
+                <%= link_to "Rejoindre le salon", my_chat_room_path(subscription.chat_room)  %>
                 <%= link_to "Quitter le salon" , my_subscription_path(subscription), method: :delete, class: "fas fa-door-open"%>
               </div>
             </li>

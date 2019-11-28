@@ -3,10 +3,10 @@
   height: auto;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 8px;
+  border-radius: 32px;
   width: 80%;
   img {
-    height: 25vh;
+    height: 32vh;
     width: auto;
     object-fit: cover;
   }
@@ -15,6 +15,7 @@
     font-size: 18px;
     font-weight: bold;
     margin: 0;
+    width: auto;
   }
   .card-chatroom-infos {
     padding: 32px;

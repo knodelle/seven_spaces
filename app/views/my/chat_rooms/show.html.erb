@@ -1,1 +1,43 @@
-<h1> show nested s</h1>
+<div class="container-fluid m-0">
+  <div class="row d-flex justify-content-xl-between">
+
+    <div class="col-12 col-xl-5">
+      <div>
+        <% @chat_rooms.each do |chat_room| %>
+          <div class="card">
+            <%= chat_room.title %>
+          </div>
+        <% end %>
+        <% @subscriptions.each do |subscription| %>
+          <div class="card">
+            <%= subscription.chat_room.title %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-12 col-xl-5">
+      <div class="card">
+        <%= @chat_room.title  %>
+      </div>
+      <div class="messages-area">
+        <p>des messages</p>
+      </div>
+      <div class="text-message">
+        <input type="text-area">
+        <%= link_to "Envoyer", "#", class: "seven-button"  %>
+      </div>
+    </div>
+
+    <div class="col-12 col-xl-2">
+      <div class="card">
+        <h5>Liste des utilisateurs</h5>
+          <p><%= @chat_master.email %>
+            <% @users.each do |user| %>
+              <%= user.email %>
+            <% end %>
+          </p>
+      </div>
+    </div>
+  </div>
+</div>

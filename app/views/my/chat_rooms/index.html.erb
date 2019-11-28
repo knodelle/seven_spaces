@@ -22,6 +22,7 @@
             <li>
               <div class="card">
                 <%= chat_room.title %>
+                <%= link_to "Rejoindre le salon", my_chat_room_path(chat_room)  %>
                 <%= link_to "Editer le salon" , edit_my_chat_room_path(chat_room) %> <%= link_to "supprimer", my_chat_room_path(chat_room), method: :delete, class: "fa fa-trash link"  %>
                 <%= link_to "Voir les demandes d'abonnement", chat_room_subscriptions_path(chat_room)  %>
               </div>
@@ -41,6 +42,7 @@
             <li>
               <div class="card">
                 <%= subscription.chat_room.title %>
+                <%= link_to "Rejoindre le salon", my_chat_room_path(subscription.chat_room)  %>
                 <%= link_to "Quitter le salon" , my_subscription_path(subscription), method: :delete, class: "fas fa-door-open"%>
               </div>
             </li>

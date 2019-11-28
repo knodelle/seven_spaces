@@ -1,9 +1,18 @@
 class My::ChatRoomsController < ApplicationController
-  before_action :set_chat_room, only: [:edit, :update, :destroy]
+  before_action :set_chat_room, only: [:show, :edit, :update, :destroy]
 
   def index
     @chat_rooms = ChatRoom.where(user_id: current_user.id)
     @subscriptions = Subscription.where(user: current_user)
+  end
+
+  def show
+    @chat_rooms = ChatRoom.where(user_id: current_user.id)
+    @subscriptions = Subscription.where(chat_room_id: @chat_room)
+    @chat_master = User.find(@chat_room.user_id)
+    @users = @subscriptions.map do |subscription|
+      User.find(subscription.user_id)
+    end
   end
 
   def new

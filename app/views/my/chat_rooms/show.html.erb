@@ -4,15 +4,14 @@
     <div class="col-12 col-xl-5">
       <div>
         <% @chat_rooms.each do |chat_room| %>
-          <div class="card-chatroom">
+          <div class="card-my-chat-rooms">
+            <img src="<%= chat_room.photo %>" alt="">
             <%= chat_room.title %>
-          </div>
-          <div class="card-chatroom-infos">
             <%= chat_room.description %>
           </div>
         <% end %>
         <% @subscriptions.each do |subscription| %>
-          <div class="card-chatroom">
+          <div class="card-my-chat-rooms">
             <%= subscription.chat_room.title %>
           </div>
         <% end %>
@@ -35,9 +34,10 @@
     <div class="col-12 col-xl-2">
       <div class="card">
         <h5>Liste des utilisateurs</h5>
-          <p><%= @chat_master.email %>
+          <p><%= @chat_master.username %>
             <% @users.each do |user| %>
-              <%= user.email %>
+              <%= user.avatar %>
+              <%= user.username %>
             <% end %>
           </p>
       </div>

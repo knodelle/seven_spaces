@@ -1,9 +1,9 @@
 
-<%= simple_form_for @chat_room do |f| %>
-  <!-- code pour faire un multiselector mais pas qui n'est pas adapté au "plant_tags#create" -->
-  <%= f.association :tags, as: :check_boxes %>
-  <%= f.button :submit, "Trouver une chatroom" %>
+<%= form_tag search_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a chatroom"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
-
-
-

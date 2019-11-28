@@ -3,3 +3,4 @@
 <%= @subscription.description %>
 <%= link_to "Modifier votre demande", edit_my_subscription_path(@subscription) %>
 <%= @subscription.status %>
+<%= link_to "Supprimer votre demande", my_subscription_path(@subscription), method: :delete %>

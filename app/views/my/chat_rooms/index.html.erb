@@ -10,47 +10,46 @@
     </div>
   </div>
 </div>
-<div class="wrap">
-  <div class="container">
-    <h3>Salons</h3>
-    <% if @chat_rooms == []  %>
-      <h4>Vous n'avez pas créer de salon... qu'attendez vous ? <i class="far fa-laugh-wink"></i> </h4>
-    <% else %>
-      <ul>
-        <% @chat_rooms.each do |chat_room| %>
-          <li>
-            <div>
-            <%= chat_room.title %>
-            <%= link_to "Editer le salon" , edit_my_chat_room_path(chat_room) %> <%= link_to "supprimer", my_chat_room_path(chat_room), method: :delete, class: "fa fa-trash link"  %>
-            <%= link_to "Voir les demandes d'abonnement", chat_room_subscriptions_path(chat_room)  %>
-            <% if chat_room.user_id == current_user.id %>
-              <p>Master</p>
-            <% end %>
-            </div>
-          </li>
-        <% end %>
-      </ul>
-    <% end %>
-  </div>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <h3>Salons</h3>
+      <% if @chat_rooms == []  %>
+        <h4>Vous n'avez pas créer de salon... qu'attendez vous ? <i class="far fa-laugh-wink"></i> </h4>
+      <% else %>
+        <ul>
+          <% @chat_rooms.each do |chat_room| %>
+            <li>
+              <div class="card">
+                <%= chat_room.title %>
+                <%= link_to "Editer le salon" , edit_my_chat_room_path(chat_room) %> <%= link_to "supprimer", my_chat_room_path(chat_room), method: :delete, class: "fa fa-trash link"  %>
+                <%= link_to "Voir les demandes d'abonnement", chat_room_subscriptions_path(chat_room)  %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
 
-  <div class="container">
-    <h3>Abonnements</h3>
-    <% if @subscriptions == []  %>
-      <h4>Vous n'avez pas rejoint de chat room... lancez vous ! <i class="fas fa-rocket"></i> </h4>
-    <% else %>
-      <ul>
-        <% @subscriptions.where(status: 'Accepted').each do |subscription| %>
-          <li>
-            <div>
-              <%= subscription.chat_room.title %>
-              <%= link_to "Quitter le salon" , my_subscription_path(subscription), method: :delete, class: "fas fa-door-open"%>
-            </div>
-          </li>
-        <% end %>
-      </ul>
-      <% pluriel = @subscriptions.where(status: 'pending').size > 1 ? "s" : ""  %>
-      <p>Vous avez <strong><%= @subscriptions.where(status: 'pending').size %></strong> abonnement<%= pluriel %> en attente. <%= link_to "Les voirs", my_subscriptions_path  %></p>
-    <% end %>
+    <div class="col-12 col-lg-6">
+      <h3>Abonnements</h3>
+      <% if @subscriptions == []  %>
+        <h4>Vous n'avez pas rejoint de chat room... lancez vous ! <i class="fas fa-rocket"></i> </h4>
+      <% else %>
+        <ul>
+          <% @subscriptions.where(status: 'Accepted').each do |subscription| %>
+            <li>
+              <div class="card">
+                <%= subscription.chat_room.title %>
+                <%= link_to "Quitter le salon" , my_subscription_path(subscription), method: :delete, class: "fas fa-door-open"%>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+        <% pluriel = @subscriptions.where(status: 'pending').size > 1 ? "s" : ""  %>
+        <p>Vous avez <strong><%= @subscriptions.where(status: 'pending').size %></strong> abonnement<%= pluriel %> en attente. <%= link_to "Les voirs", my_subscriptions_path  %></p>
+      <% end %>
+    </div>
   </div>
 </div>
 

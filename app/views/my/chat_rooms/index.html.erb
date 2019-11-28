@@ -1,5 +1,15 @@
-<h1>Voici la liste de vos salons</h1>
-<p>Modifier, supprimer, ou, créer... C'est ici que ça se passe !</p>
+<div class="banner">
+  <div class="banner-header">
+    <h1>Voici la liste de vos salons</h1>
+    <p>Modifier, supprimer, ou, créer... C'est ici que ça se passe !</p>
+  </div>
+  <div class="create-button-index">
+    <%= link_to "Créer un salon", new_my_chat_room_path, class: "seven-button" %>
+  </div>
+  <div class="search-button-index">
+    <%= link_to "Rechercher un salon", search_path, class: "seven-button" %>
+  </div>
+</div>
 
 <h3>Salons</h3>
 <% if @chat_rooms == []  %>
@@ -21,7 +31,7 @@
   </ul>
 <% end %>
 
-<%= link_to "create a room", new_my_chat_room_path  %>
+
 
 <h3>Abonnements</h3>
 <% if @subscriptions == []  %>
@@ -41,5 +51,5 @@
   <p>Vous avez <strong><%= @subscriptions.where(status: 'pending').size %></strong> abonnement<%= pluriel %> en attente. <%= link_to "Les voirs", my_subscriptions_path  %></p>
 <% end %>
 
-<%= link_to "Rechercher un salon", search_path %>
+
 

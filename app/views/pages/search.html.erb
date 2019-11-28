@@ -1,5 +1,5 @@
 
-<%= simple_form_for @chat_rooms do |f| %>
+<%= simple_form_for @chat_room do |f| %>
   <!-- code pour faire un multiselector mais pas qui n'est pas adapté au "plant_tags#create" -->
   <%= f.association :tags, as: :check_boxes %>
   <%= f.button :submit, "Trouver une chatroom" %>

@@ -8,6 +8,8 @@
     <%= f.input :description, label: "ajoutez une description", placeholder: "Quelles sont les règles a suivre dans votre chat room ? Quels en sont les critères d'entrée ?"  %>
   </div>
 
+  <%= f.association :tags, as: :check_boxes %>
+
   <div class="form-actions">
     <%= f.button :submit, "Créer" %>
   </div>

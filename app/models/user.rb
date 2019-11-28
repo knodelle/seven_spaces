@@ -4,4 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   belongs_to :chat_room, optional: true
+  has_many :messages
+  # validates :username, presence: true, uniqueness: true
+  # validates :admin, presence: true, default: false
 end

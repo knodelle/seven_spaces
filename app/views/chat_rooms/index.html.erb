@@ -26,5 +26,10 @@
   </div>
 </div>
 
-
-
+<h1> chatroom index</h1>
+<ul>
+  <% @chat_rooms.each do |chat_room| %>
+    <li> <%= chat_room.title %> </li>
+    <%= link_to "Rejoindre ce salon", new_chat_room_my_subscription_path(chat_room)  %>
+  <% end %>
+</ul>

@@ -32,6 +32,26 @@
   }
 }
 
+.card-my-chat-rooms {
+  overflow: hidden;
+  height: 100px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  width: 80%;
+  margin: 5px;
+  position: relative;
+  img {
+    height: 100px;
+    width: auto;
+    object-fit: cover;
+  }
+}
+
+.card-my-chat-rooms-infos {
+  width: 150px;
+}
+
 
 //list-inline justify-content-center'
 // . {

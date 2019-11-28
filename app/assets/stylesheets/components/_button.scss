@@ -1,0 +1,22 @@
+.create-button-index {
+
+}
+
+.search-button-index {
+
+}
+
+.seven-button {
+  color: $midnight-green;
+  background-color: $pale-green;
+  border-radius: 4px;
+  padding: 10px 25px;
+  font-weight: bold;
+  margin: 10px;
+  &:hover {
+    text-decoration: none;
+    color: black;
+    background-color: $dark-sky-blue;
+  }
+}
+

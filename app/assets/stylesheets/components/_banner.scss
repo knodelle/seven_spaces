@@ -1,0 +1,11 @@
+.banner {
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(55,55,55,0.1)),url("https://marketplace.canva.com/MADmjDN8-X0/1/screen_2x/canva-sans-titre-MADmjDN8-X0.jpg");
+  background-size: cover;
+  padding: 120px 0;
+  color: white;
+}
+.banner-header {
+  justify-content: space-around;
+  flex-direction: column;
+  text-align: center;
+}

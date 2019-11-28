@@ -3,8 +3,8 @@ class SubscriptionsController < ApplicationController
 
   def index
     @chat_room = ChatRoom.find(params[:chat_room_id])
-    sql_query = "chat_room_id = ? AND status = 'pending'"
-    @subscriptions = Subscription.where(sql_query, @chat_room)
+    sql_query = "chat_room_id = ? AND status = 'pending' AND user_id != ?"
+    @subscriptions = Subscription.where(sql_query, @chat_room, current_user.id)
   end
 
   def show

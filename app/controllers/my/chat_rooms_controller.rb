@@ -11,21 +11,23 @@ class My::ChatRoomsController < ApplicationController
   end
 
   def create
-    @chat_room = ChatRoom.new(chat_room_params)
+    @chat_room = ChatRoom.new(chat_room_allowed_params)
     @chat_room.user_id = current_user.id
     if @chat_room.save
-      redirect_to my_chat_rooms_path(@chat_room)
+      redirect_to my_chat_rooms_path
     else
       render :new
     end
   end
 
   def edit
+    @chat_room = ChatRoom.find(params[:id])
   end
 
   def update
-    if @chat_room.update(chat_room_params)
-      redirect_to my_chat_rooms_path(@chat_room)
+    @chat_room = ChatRoom.find(params[:id])
+    if @chat_room.update_attributes(chat_room_allowed_params)
+      redirect_to my_chat_rooms_path
     else
       render :edit
     end
@@ -42,7 +44,7 @@ class My::ChatRoomsController < ApplicationController
     @chat_room = ChatRoom.find(params[:id])
   end
 
-  def chat_room_params
-    params.require(:chat_room).permit(:title, :description)
+  def chat_room_allowed_params
+    params.require(:chat_room).permit(:title, :description, chat_room_tags: [:id, :_destroy])
   end
 end

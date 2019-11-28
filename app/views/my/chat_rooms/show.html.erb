@@ -4,12 +4,15 @@
     <div class="col-12 col-xl-5">
       <div>
         <% @chat_rooms.each do |chat_room| %>
-          <div class="card">
+          <div class="card-chatroom">
             <%= chat_room.title %>
+          </div>
+          <div class="card-chatroom-infos">
+            <%= chat_room.description %>
           </div>
         <% end %>
         <% @subscriptions.each do |subscription| %>
-          <div class="card">
+          <div class="card-chatroom">
             <%= subscription.chat_room.title %>
           </div>
         <% end %>

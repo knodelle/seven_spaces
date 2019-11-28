@@ -1,1 +1,26 @@
+.links-seven {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5px 25px;
+  width: 230px;
+}
+
+.link-seven {
+  font-weight: bold;
+  color: $dark-sky-blue;
+  &:hover {
+    text-decoration: none;
+    color: $pale-green
+  }
+}
+
+.left-column {
+  border-right: 2px solid black;
+  border-left: 2px solid black;
+}
+
+.right-column {
+  border-right: 2px solid black;
+}
 

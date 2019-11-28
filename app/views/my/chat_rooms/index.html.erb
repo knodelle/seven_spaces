@@ -12,27 +12,29 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-12 col-lg-6">
+    <div class="col-12 col-lg-6 mt-2 left-column">
       <h3>Salons</h3>
       <% if @chat_rooms == []  %>
         <h4>Vous n'avez pas créer de salon... qu'attendez vous ? <i class="far fa-laugh-wink"></i> </h4>
       <% else %>
-        <ul>
-          <% @chat_rooms.each do |chat_room| %>
-            <li>
-              <div class="card">
-                <%= chat_room.title %>
-                <%= link_to "Rejoindre le salon", my_chat_room_path(chat_room)  %>
-                <%= link_to "Editer le salon" , edit_my_chat_room_path(chat_room) %> <%= link_to "supprimer", my_chat_room_path(chat_room), method: :delete, class: "fa fa-trash link"  %>
-                <%= link_to "Voir les demandes d'abonnement", chat_room_subscriptions_path(chat_room)  %>
-              </div>
-            </li>
-          <% end %>
-        </ul>
+        <% @chat_rooms.each do |chat_room| %>
+          <div class="card-my-chat-rooms d-flex">
+            <img src="<%= chat_room.photo %>" alt="">
+            <div class="card-my-chat-rooms-infos">
+              <h5><%= chat_room.title %></h5>
+              <p><%= chat_room.description.first(5) %></p>
+            </div>
+            <div class="links-seven">
+              <%= link_to "Editer le salon" , edit_my_chat_room_path(chat_room), class: "fas fa-edit link-seven" %>
+              <%= link_to " Supprimer", my_chat_room_path(chat_room), method: :delete, class: "fa fa-trash link-seven"  %>
+              <%= link_to " Demandes", chat_room_subscriptions_path(chat_room), class: "far fa-envelope link-seven"  %>
+            </div>
+          </div>
+        <% end %>
       <% end %>
     </div>
 
-    <div class="col-12 col-lg-6">
+    <div class="col-12 col-lg-6 mt-2 right-column">
       <h3>Abonnements</h3>
       <% if @subscriptions == []  %>
         <h4>Vous n'avez pas rejoint de chat room... lancez vous ! <i class="fas fa-rocket"></i> </h4>

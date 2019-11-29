@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2019_11_29_140343) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.string "photo"
+    t.string "photo", default: "https://www.trzcacak.rs/myfile/detail/227-2273042_live-chat-live-chat-icon-png.png"
     t.index ["user_id"], name: "index_chat_rooms_on_user_id"
   end
 

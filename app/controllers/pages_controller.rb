@@ -6,16 +6,12 @@ class PagesController < ApplicationController
   end
 
   def search
-
-    if params[:query].present?
-      @chat_rooms = ChatRoom.joins(:tags).where(name: params[:query])
-    else
-      @chat_rooms = ChatRoom.all
+    @chat_rooms = []
+    if params[:search].present?
+      Tag.where(id: params[:search][:tag_ids]).each_with_index do |tag, i|
+        @chat_rooms = tag.chat_rooms if i == 0
+        @chat_rooms = @chat_rooms & tag.chat_rooms
+      end
     end
-
-    # redirect_to my_chat_rooms_path unless curent_user.chat_rooms.empty?
-    # db tag chercher celui qui correspond chat_rooms_tag.where(tag.name == query)
   end
-
-
 end

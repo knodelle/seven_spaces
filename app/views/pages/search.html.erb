@@ -1,9 +1,24 @@
 
-<%= form_tag search_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a chatroom"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8">
+      <%= simple_form_for :search, url: search_path, method: :get do |f| %>
+        <%= f.input :tag_ids, collection: Tag.all, input_html: { multiple: true, class: "select2" }, include_hidden: false %>
+        <%= f.submit "Add chatroom", class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row ">
+    <% @chat_rooms.each do |chat_room| %>
+      <div class="col-md-3">
+        <%= chat_room.title %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+

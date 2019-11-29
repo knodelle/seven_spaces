@@ -1,3 +1,14 @@
+@media(min-width:979px) {
+  .chatroom {
+    .card-chatroom {
+      height:300px;
+      img {
+        height: 100%;
+      }
+    }
+  }
+}
+
 .card-chatroom {
   overflow: hidden;
   height: auto;

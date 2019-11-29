@@ -1,45 +1,89 @@
 <div class="container-fluid m-0">
   <div class="row d-flex justify-content-xl-between">
 
-    <div class="col-12 col-xl-5">
+    <div class="col-12 col-xl-4">
+      <div class="informations">
+        <%= image_tag current_user.avatar, class: "avatar-large" %>
+        <div class="informations-button">
+          <%= link_to "Tableau de bord", my_chat_rooms_path, class: "seven-button" %>
+          <p>Status: <strong>En ligne</strong></p>
+        </div>
+      </div>
       <div>
+        <h3>Salons</h3>
         <% @chat_rooms.each do |chat_room| %>
-          <div class="card-my-chat-rooms">
+          <div class="card-my-chat-rooms d-flex">
             <img src="<%= chat_room.photo %>" alt="">
-            <%= chat_room.title %>
-            <%= chat_room.description %>
+            <div class="card-my-chat-rooms-infos">
+              <h5><%= chat_room.title %></h5>
+              <p><%= chat_room.description.first(10) %></p>
+            </div>
+            <div class="links-seven-show">
+              <%= link_to "Rejoindre le salon", my_chat_room_path(chat_room), class: "fas fa-sign-in-alt link-seven"  %>
+              <%= link_to " Demandes", chat_room_subscriptions_path(chat_room), class: "far fa-envelope link-seven"  %>
+            </div>
           </div>
         <% end %>
         <% @subscriptions.each do |subscription| %>
-          <div class="card-my-chat-rooms">
-            <%= subscription.chat_room.title %>
+          <div class="card-my-chat-rooms d-flex">
+            <img src="<%= subscription.chat_room.photo %>" alt="">
+            <div class="card-my-chat-rooms-infos">
+              <h5><%= subscription.chat_room.title %></h5>
+              <p><%= subscription.chat_room.description.first(10) %></p>
+            </div>
+            <div class="links-seven-show">
+              <%= link_to "Rejoindre le salon", my_chat_room_path(subscription.chat_room), class: "fas fa-sign-in-alt link-seven"  %>
+              <%= link_to "Quitter le salon" , my_subscription_path(subscription), method: :delete, class: "fas fa-door-open link-seven"%>
+            </div>
           </div>
         <% end %>
       </div>
     </div>
 
-    <div class="col-12 col-xl-5">
-      <div class="card">
-        <%= @chat_room.title  %>
+    <div class="col-12 col-xl-6">
+      <div class="card-title-chat-room">
+        <h3> <%= @chat_room.title  %></h3>
       </div>
-      <div class="messages-area">
-        <p>des messages</p>
-      </div>
-      <div class="text-message">
-        <input type="text-area">
-        <%= link_to "Envoyer", "#", class: "seven-button"  %>
+      <div class="chat-room">
+        <div class="messages-area">
+          <p>des messages</p>
+        </div>
+        <div class="text-message">
+          <div class="text-message-area">
+            <input type="text-area">
+          </div>
+          <div>
+            <%= link_to "Envoyer", "#", class: "seven-button"  %>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="col-12 col-xl-2">
-      <div class="card">
+      <div class="card-chat-room-users">
         <h5>Liste des utilisateurs</h5>
-          <p><%= @chat_master.username %>
+          <p>Maître du salon: </p>
+          <div class="d-flex">
+            <div>
+              <%= image_tag @chat_master.avatar, class: "avatar" %>
+            </div>
+            <div>
+              <p>- <%= @chat_master.username %></p>
+            </div>
+          </div>
+          <p>Utilisateurs:</p>
+          <div>
             <% @users.each do |user| %>
-              <%= user.avatar %>
-              <%= user.username %>
+            <div class="d-flex">
+              <div>
+                <%= image_tag user.avatar, class: "avatar" %>
+              </div>
+              <div>
+                <p>- <%= user.username %></p>
+              </div>
+            </div>
             <% end %>
-          </p>
+          </div>
       </div>
     </div>
   </div>

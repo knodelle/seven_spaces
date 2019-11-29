@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_28_180217) do
+ActiveRecord::Schema.define(version: 2019_11_29_140343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2019_11_28_180217) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.string "photo", default: "https://img.icons8.com/small/1600/filled-chat.png"
+    t.string "photo"
     t.index ["user_id"], name: "index_chat_rooms_on_user_id"
   end
 

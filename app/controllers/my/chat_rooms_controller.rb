@@ -54,6 +54,6 @@ class My::ChatRoomsController < ApplicationController
   end
 
   def chat_room_allowed_params
-    params.require(:chat_room).permit(:title, :description, chat_room_tags: [:id, :_destroy])
+    params.require(:chat_room).permit(:title, :description, :photo, chat_room_tags: [:id, :_destroy])
   end
 end

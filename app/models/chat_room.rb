@@ -5,4 +5,5 @@ class ChatRoom < ApplicationRecord
   has_many :subscriptions, dependent: :destroy
   accepts_nested_attributes_for :chat_room_tags,
                                 allow_destroy: true
+  mount_uploader :photo, PhotoUploader
 end

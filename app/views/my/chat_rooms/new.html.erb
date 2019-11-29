@@ -9,6 +9,8 @@
     <div class="form-inputs">
       <%= f.input :title, label: "Titre" %>
       <%= f.input :description, label: "Ajoutez une description", placeholder: "Quelles sont les règles a suivre dans votre chat room ? Quels en sont les critères d'entrée ?"  %>
+      <%= f.input :photo, as: :file, label: "Ajoutez une image" %>
+      <%= f.input :photo_cache, as: :hidden %>
     </div>
 
     <%#= f.association :tags, as: :check_boxes %>
@@ -16,10 +18,10 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 col-md-8">
-        <%= simple_form_for :search, url: search_path, method: :get do |f| %>
-          <%= f.input :tags, collection: Tag.all, input_html: { multiple: true, class: "select2" }, include_hidden: false %>
-          <%= f.submit "+", class: 'btn btn-primary' %>
-        <% end %>
+        <%#= simple_form_for :search, url: search_path, method: :get do |f| %>
+          <%#= f.input :tags, collection: Tag.all, input_html: { multiple: true, class: "select2" }, include_hidden: false %>
+          <%#= f.submit "+", class: 'btn btn-primary' %>
+        <%# end %>
       </div>
     </div>
   </div>

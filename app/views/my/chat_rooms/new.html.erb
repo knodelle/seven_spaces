@@ -1,33 +1,41 @@
-<h1>Créer une chat room</h1>
-
-<%= simple_form_for [:my, @chat_room] do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :title, label: "Titre" %>
-    <%= f.input :description, label: "ajoutez une description", placeholder: "Quelles sont les règles a suivre dans votre chat room ? Quels en sont les critères d'entrée ?"  %>
-  </div>
-
-  <%#= f.association :tags, as: :check_boxes %>
+<div class="header-edit">
+  <h1>Créer une chat room</h1>
+</div>
 
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-12 col-md-8">
-      <%= simple_form_for :search, url: search_path, method: :get do |f| %>
-        <%= f.input :tag_ids, collection: Tag.all, input_html: { multiple: true, class: "select2" }, include_hidden: false %>
-        <%= f.submit "Ajoutez un ou plusieurs tags", class: 'btn btn-primary' %>
-      <% end %>
+  <%= simple_form_for [:my, @chat_room] do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :title, label: "Titre" %>
+      <%= f.input :description, label: "Ajoutez une description", placeholder: "Quelles sont les règles a suivre dans votre chat room ? Quels en sont les critères d'entrée ?"  %>
     </div>
+
+    <%#= f.association :tags, as: :check_boxes %>
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8">
+        <%= simple_form_for :search, url: search_path, method: :get do |f| %>
+          <%= f.input :tags, collection: Tag.all, input_html: { multiple: true, class: "select2" }, include_hidden: false %>
+          <%= f.submit "+", class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <div class="form-actions">
+      <%= f.button :submit, "Créer", class: "seven-button" %>
+    </div>
+  <% end %>
+
+  <%= link_to "Retour", :back, class: "seven-button" %>
   </div>
 </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Créer" %>
-  </div>
-<% end %>
-
-<%= link_to "Retour", :back %>
 
 <!-- Comment faire pour faire autant de check boxes que de tags ?
 Comment lier aux tags ?
 Problème de création de chat_room_tags à la création d'une chat_room (formulaire new de my chat_room à adapter selon cocoon) -->
+

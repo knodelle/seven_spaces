@@ -5,7 +5,7 @@
     <div class="col-12 col-md-8">
       <%= simple_form_for :search, url: search_path, method: :get do |f| %>
         <%= f.input :tag_ids, collection: Tag.all, input_html: { multiple: true, class: "select2" }, include_hidden: false %>
-        <%= f.submit "Add chatroom", class: 'btn btn-primary' %>
+        <%= f.submit "Chercher un salon", class: 'btn btn-primary' %>
       <% end %>
     </div>
   </div>
@@ -20,5 +20,6 @@
     <% end %>
   </div>
 </div>
+
 
 

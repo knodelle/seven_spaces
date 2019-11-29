@@ -10,14 +10,16 @@
 
   <%#= f.association :tags, as: :check_boxes %>
 
-  <div id="chat_room_tags">
-    <%= f.simple_fields_for :chat_room_tags, ChatRoomTag.new do |chat_room_tag| %>
-    <%= render 'chat_room_tag_fields', f: chat_room_tag %>
-      <div class="links">
-        <%= link_to_add_association 'Add Tag', f, :chat_room_tags %>
-      </div>
-    <% end %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8">
+      <%= simple_form_for :search, url: search_path, method: :get do |f| %>
+        <%= f.input :tag_ids, collection: Tag.all, input_html: { multiple: true, class: "select2" }, include_hidden: false %>
+        <%= f.submit "Ajoutez un ou plusieurs tags", class: 'btn btn-primary' %>
+      <% end %>
+    </div>
   </div>
+</div>
 
   <div class="form-actions">
     <%= f.button :submit, "Créer" %>

@@ -11,8 +11,8 @@ ChatRoom.destroy_all
 User.destroy_all
 
 puts 'creating users ...'
-adrien = User.create(email: 'adrien.peres@gmail.com', password: 'azerty')
-julien = User.create(email: 'julien@gmail.com', password: 'azerty')
+adrien = User.create(email: 'adrien.peres@gmail.com', password: 'azerty', username: "Bgdu93")
+julien = User.create(email: 'julien@gmail.com', password: 'azerty', username: "Juju_tuning33")
 puts 'users done !'
 puts 'creating chat rooms...'
 ChatRoom.create(title: 'Chat room 1', description: 'lorem ipsum', user_id: adrien.id)

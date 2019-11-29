@@ -36,4 +36,36 @@
   <% end %>
 </div>
 
+<br>
+<h1> chatroom index</h1>
+<ul>
+  <% @chat_rooms.each do |chat_room| %>
+    <li> <%= chat_room.title %> </li>
+    <%= link_to "Rejoindre ce salon", new_chat_room_my_subscription_path(chat_room)  %>
+  <% end %>
+</ul>
+
+<div class="chatroom d-flex flex-column align-items-center mt-3  ">
+  <div class="card-chatroom d-flex flex-column flex-lg-row mb-3" >
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <div class="card-chatroom-infos ">
+      <h2 class='margin-remove-bottom'>Chat room name</h2>
+      <p class='text-meta margin-remove-top'>Chat room description with <strong>relevant info</strong> only.</p>
+      <ul class='room-tags card-body' >
+        <li class="room-tag "> front-end developpement</li>
+        <li class="room-tag "> front-end developpement</li>
+        <li class="room-tag "> front-end developpement</li>
+        <li class="room-tag "> front-end developpement</li>
+        <li class="room-tag "> front-end developpement</li>
+        <li class="room-tag "> front-end developpement</li>
+        <li class="room-tag "> front-end developpement</li>
+      </ul>
+      <div class="card-footer align-items-center bg-transparent">
+        <a href="#" class="button seven-button float-right mt-2 mr-3">Supprimer</a>
+        <a href="#" class="button seven-button float-right mt-2 mr-3">Modifier</a>
+        <a href="#" class="button seven-button float-left mt-2 mr-3">Rejoindre ce salon</a>
+      </div>
+    </div>
+  </div>
+</div>
 

@@ -21,6 +21,15 @@
   }
 }
 
+.links-seven-show {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 5px 0px;
+  width: 180px;
+  font-size: 14px;
+}
+
 .left-column {
   text-align: center;
   border-right: 2px solid black;

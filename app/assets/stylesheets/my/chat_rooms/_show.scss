@@ -1,0 +1,33 @@
+.informations {
+  display: flex;
+}
+
+.informations-button {
+   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 0px;
+}
+
+.messages-area {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  height: 600px;
+  border: 2px solid $midnight-green;
+}
+
+.text-message {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.text-message-area {
+  width: 100%;
+}
+
+.chat-room {
+  display: flex;
+  flex-direction: column;
+}

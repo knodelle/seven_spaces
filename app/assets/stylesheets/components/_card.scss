@@ -39,7 +39,7 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 8px;
-  width: 80%;
+  width: 100%;
   margin: 5px;
   position: relative;
   img {
@@ -50,7 +50,13 @@
 }
 
 .card-my-chat-rooms-infos {
-  width: 140px;
+  width: 180px;
+}
+
+.my-chat-rooms {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 

@@ -1,8 +1,33 @@
-<h1>Abonnements en attente</h1>
+<div class="banner">
+  <div class="banner-header d-flex">
+    <div class="header">
+      <h1>Vos demandes d'abonnement</h1>
+      <p>Découvrez toutes les demandes pour rejoindre votre chatroom</p>
+    </div>
+    <div class="buttons-index">
+      <%= link_to "Retour à votre Tableau", my_chat_rooms_path, class: "seven-button" %>
 
-<% @subscriptions.each do |subscription| %>
-  <p> <%= subscription.user.email %></p>
-  <p> <%= subscription.description.first(10) %>... <%= link_to "en savoir plus...", subscription_path(subscription)  %></p>
-<% end %>
+    </div>
+  </div>
+</div>
 
-<%= link_to "Retour", my_chat_rooms_path %>
+<div class='pending'>
+  <div class='container mb-4 mt-4 text-center '>
+        <h1>Demandes d'abonnement</h1>
+  </div>
+</div>
+
+
+<div class="card-deck container">
+  <% @subscriptions.each do |subscription| %>
+  <div class="card ">
+    <div class="card-body">
+      <h5 class="card-title"><%= subscription.user.email %></h5>
+      <p class="card-text"><%= subscription.description.first(140) %></p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted float-right bg-transparent"><%= link_to "Voir la demande", subscription_path(subscription), class:'seven-button'  %></small>
+    </div>
+  </div>
+  <% end %>
+</div>

@@ -20,7 +20,7 @@
         <div class="my-chat-rooms">
           <% @chat_rooms.each do |chat_room| %>
             <div class="card-my-chat-rooms d-flex">
-              <img src="<%= chat_room.photo %>" alt="">
+              <img src="<%= chat_room.photo %>" alt="chat_room photo">  <!-- ajouter une image par defaut -->
               <div class="card-my-chat-rooms-infos">
                 <h5><%= chat_room.title %></h5>
                 <p><%= chat_room.description.first(5) %></p>

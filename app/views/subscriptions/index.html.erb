@@ -11,12 +11,6 @@
   </div>
 </div>
 
-<div class='pending'>
-  <div class='container mb-4 mt-4 text-center '>
-        <h1>Demandes d'abonnement</h1>
-  </div>
-</div>
-
 
 <div class="card-deck container">
   <% @subscriptions.each do |subscription| %>
@@ -29,6 +23,13 @@
       <small class="text-muted float-right bg-transparent"><%= link_to "Voir la demande", subscription_path(subscription), class:'seven-button'  %></small>
     </div>
   </div>
+  <% end %>
+</div>
+
+<div class='text-center mt-5'>
+  <% if @subscriptions.size == 0 %>
+    <h3 class='mb-3'> Oups... ^^'</h1>
+    <p>On dirait que vous n'avez pas encore de demande pour rejoindre votre chatroom.</p>
   <% end %>
 </div>
 

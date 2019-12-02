@@ -3,10 +3,10 @@
 }
 
 .informations-button {
-   display: flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-right: 0px;
+  margin-left: 60px;
 }
 
 .messages-area {
@@ -38,7 +38,7 @@
 }
 
 .card-chat-room-users {
-  margin-top: 30px;
+  margin-top: 15px;
   margin-right: 10px;
   padding: 10px;
   border-radius: 8px;
@@ -56,8 +56,33 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+
 }
 
 .active-chat-room {
   box-shadow: 0 0 15px $pale-green;
+}
+
+.username-chat {
+  color: $midnight-green;
+  font-weight: bolder;
+}
+
+.my-chat-rooms-index {
+  text-align: center;
+  h3 {
+    color: $dark-sky-blue;
+  }
+}
+
+.image-slot {
+  grid-column: 1fr;
+  overflow: hidden;
+  background-position: center;
+}
+
+.chat-room-tags {
+  display: flex;
+  flex-direction: column;
+
 }

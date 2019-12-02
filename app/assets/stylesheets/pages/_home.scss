@@ -1,1 +1,16 @@
 // Specific CSS for your home-page
+
+.wraphome {
+  // background-image: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(55,55,55,0.1)),url("https://marketplace.canva.com/MADmjDN8-X0/1/screen_2x/canva-sans-titre-MADmjDN8-X0.jpg");
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(55,55,55,0.1)),url("soap-bubble.jpg");
+  background-size: cover;
+  padding: 120px 0;
+  color: white;
+}
+
+.descriptions {
+  background-image: linear-gradient(to bottom, rgba( 0, 0, 0, 0 ), rgba(244,244,244, 255)), url("backgroundimage.png");
+  padding: 80px;
+  background-size: cover;
+}
+

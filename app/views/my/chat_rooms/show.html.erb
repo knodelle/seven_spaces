@@ -17,6 +17,9 @@
             <div class="card-my-chat-rooms-infos">
               <h5><%= chat_room.title %></h5>
               <p><%= chat_room.description.first(10) %></p>
+              <% chat_room.subscriptions.each do |subscription| %>
+              <p><%= subscription.user.username %></p>
+              <% end %>
             </div>
             <div class="links-seven-show">
               <%= link_to "Rejoindre le salon", my_chat_room_path(chat_room), class: "fas fa-sign-in-alt link-seven"  %>
@@ -46,16 +49,21 @@
       </div>
       <div class="chat-room">
         <div class="messages-area">
-          <p>des messages</p>
+          <% @messages.each do |message| %>
+            <p> < <%=message.user.username%> >-<%= message.content %></p>
+          <% end %>
         </div>
-        <div class="text-message">
-          <div class="text-message-area">
-            <input type="text-area">
+        <%= simple_form_for [:my, @chat_room, @message] do |f| %>
+          <%= f.error_notification %>
+          <div class="text-message">
+            <div class="text-message-area">
+              <%= f.input :content, label: "Message" %>
+            </div>
+            <div class="send-button">
+              <%= f.button :submit, "Envoyer", class: "seven-button" %>
+            </div>
           </div>
-          <div>
-            <%= link_to "Envoyer", "#", class: "seven-button"  %>
-          </div>
-        </div>
+        <% end %>
       </div>
     </div>
 

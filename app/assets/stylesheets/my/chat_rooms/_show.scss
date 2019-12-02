@@ -15,12 +15,17 @@
   background-color: white;
   height: 600px;
   border: 2px solid $midnight-green;
+  overflow: scroll;
 }
 
 .text-message {
   display: flex;
   justify-content: space-between;
   margin-top: 15px;
+  .send-button {
+    display: flex;
+    text-align: center;
+  }
 }
 
 .text-message-area {

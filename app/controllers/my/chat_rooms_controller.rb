@@ -13,6 +13,8 @@ class My::ChatRoomsController < ApplicationController
     @users = @subscriptions.map do |subscription|
       User.find(subscription.user_id)
     end
+    @messages = @chat_room.messages
+    @message = Message.new
   end
 
   def new

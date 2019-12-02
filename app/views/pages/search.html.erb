@@ -4,7 +4,7 @@
   <div class="row justify-content-center">
     <div class="col-12 col-md-8">
       <%= simple_form_for :search, url: search_path, method: :get do |f| %>
-        <%= f.input :tag_ids, collection: Tag.all, input_html: { multiple: true, class: "select2" }, include_hidden: false %>
+        <%= f.input :tag_ids, collection: Tag.all, input_html: { multiple: true, class: "select2" }, include_hidden: false  %>
         <form class="form-inline my-2 my-lg-0 justify-content-center">
         <%= f.button :submit, "Chercher un salon", class: 'seven-button' %>
 <!--       <button class="btn seven-button my-2 my-sm-0 ml-2 mr-2" type="submit">Essayer un autre tag</button>

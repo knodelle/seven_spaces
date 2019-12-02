@@ -1,8 +1,71 @@
 // Specific CSS for your home-page
 
+.home-banner {
+  background-image: url("banner-img1.png");
+  height:60vh;
+  background-size: cover;
+  background-position: 50% 18%;
+  padding: 150px 0;
+
+}
+
+.home-text {
+ margin-left: 10%;
+}
+
+
+.home-banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.home-banner p {
+  font-size: 24px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.one-text{
+
+}
+
+.one-img {
+  background-image: url("banner-img1.png");
+  height:60vh;
+  background-size: cover;
+  background-position: 50% 18%;
+  padding: 150px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .wraphome {
   // background-image: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(55,55,55,0.1)),url("https://marketplace.canva.com/MADmjDN8-X0/1/screen_2x/canva-sans-titre-MADmjDN8-X0.jpg");
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(55,55,55,0.1)),url("soap-bubble.jpg");
+  background-image: url("soap-bubble.jpg");
   background-size: cover;
   padding: 120px 0;
   color: white;

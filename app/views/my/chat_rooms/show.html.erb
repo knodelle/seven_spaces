@@ -6,14 +6,19 @@
         <%= image_tag current_user.avatar, class: "avatar-large" %>
         <div class="informations-button">
           <%= link_to "Tableau de bord", my_chat_rooms_path, class: "seven-button" %>
-          <p>Status: <strong>En ligne</strong></p>
         </div>
       </div>
       <div>
-        <h3>Salons</h3>
+        <div class="my-chat-rooms-index">
+          <h3>Salons</h3>
+        </div>
         <% @chat_rooms.each do |chat_room| %>
-          <div class="card-my-chat-rooms d-flex">
-            <img src="<%= chat_room.photo %>" alt="">
+          <div class="card-my-chat-rooms">
+            <div class="image-slot">
+              <div class="image-slot">
+                <%= cl_image_tag chat_room.photo, class: "card-my-chat-rooms-image" %>
+              </div>
+            </div>
             <div class="card-my-chat-rooms-infos">
               <h5><%= chat_room.title %></h5>
               <p><%= chat_room.description.first(10) %></p>
@@ -25,8 +30,10 @@
           </div>
         <% end %>
         <% @my_subscriptions.each do |my_subscription| %>
-          <div class="card-my-chat-rooms d-flex">
-            <img src="<%= my_subscription.chat_room.photo %>" alt="">
+          <div class="card-my-chat-rooms">
+            <div class="image-slot">
+              <%= cl_image_tag "my_subscription.chat_room.photo", class: "card-my-chat-rooms-image" %>
+            </div>
             <div class="card-my-chat-rooms-infos">
               <h5><%= my_subscription.chat_room.title %></h5>
               <p><%= my_subscription.chat_room.description.first(10) %></p>
@@ -41,17 +48,22 @@
     </div>
 
     <div class="col-12 col-xl-6">
-      <div class="card-title-chat-room">
+      <div class="card-title-chat-room p-2">
         <div>
           <h3><%= @chat_room.title  %></h3>
           <p><%= @chat_room.description %></p>
         </div>
-        <p> y aura des tags ici .... oui oui</p>
+        <div class="chat-room-tags">
+          <p> y aura des tags ici .... oui oui</p>
+        </div>
       </div>
       <div class="chat-room">
         <div class="messages-area">
           <% @messages.each do |message| %>
-            <p> < <%=message.user.username%> >-<%= message.content %></p>
+            <div class="d-flex">
+              <p class="username-chat">< <%=message.user.username%> ></p>
+              <p><%= message.content %></p>
+            </div>
           <% end %>
         </div>
         <%= simple_form_for [:my, @chat_room, @message] do |f| %>

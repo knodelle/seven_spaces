@@ -19,8 +19,10 @@
       <% else %>
         <div class="my-chat-rooms">
           <% @chat_rooms.each do |chat_room| %>
-            <div class="card-my-chat-rooms d-flex">
-              <img src="<%= chat_room.photo %>" alt="chat_room photo">  <!-- ajouter une image par defaut -->
+            <div class="card-my-chat-rooms">
+              <div class="image-slot">
+                <%= cl_image_tag chat_room.photo, class: "card-my-chat-rooms-image" %>
+              </div>
               <div class="card-my-chat-rooms-infos">
                 <h5><%= chat_room.title %></h5>
                 <p><%= chat_room.description.first(5) %></p>
@@ -45,8 +47,10 @@
         <% else %>
           <div class="my-chat-rooms">
             <% @subscriptions.where(status: 'Accepted').each do |subscription| %>
-              <div class="card-my-chat-rooms d-flex">
-                <img src="<%= subscription.chat_room.photo %>" alt="">
+              <div class="card-my-chat-rooms">
+                <div class="image-slot">
+                  <%= cl_image_tag subscription.chat_room.photo, class: "card-my-chat-rooms-image" %>
+                </div>
                 <div class="card-my-chat-rooms-infos">
                   <h5><%= subscription.chat_room.title %></h5>
                   <p><%= subscription.chat_room.description.first(5) %></p>
@@ -55,17 +59,17 @@
                   <%= link_to "Rejoindre le salon", my_chat_room_path(subscription.chat_room), class: "fas fa-sign-in-alt link-seven"  %>
                   <%= link_to "Quitter le salon" , my_subscription_path(subscription), method: :delete, class: "fas fa-door-open link-seven"%>
                 </div>
-                </div>
               </div>
             <% end %>
           </div>
-      <% end %>
-      <div>
-        <% pluriel = @subscriptions.where(status: 'pending').size > 1 ? "s" : ""  %>
-        <p>Vous avez <strong><%= @subscriptions.where(status: 'pending').size %></strong> abonnement<%= pluriel %> en attente.</p>
-        <% if @subscriptions.where(status: 'pending').size > 0 %>
-          <%= link_to "Voirs", my_subscriptions_path, class: "seven-button"  %>
         <% end %>
+        <div>
+          <% pluriel = @subscriptions.where(status: 'pending').size > 1 ? "s" : ""  %>
+          <p>Vous avez <strong><%= @subscriptions.where(status: 'pending').size %></strong> abonnement<%= pluriel %> en attente.</p>
+          <% if @subscriptions.where(status: 'pending').size > 0 %>
+            <%= link_to "Voirs", my_subscriptions_path, class: "seven-button"  %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

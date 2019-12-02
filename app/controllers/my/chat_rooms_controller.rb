@@ -24,7 +24,7 @@ class My::ChatRoomsController < ApplicationController
 
   def create
     @chat_room = ChatRoom.new(chat_room_allowed_params)
-    @chat_room.user_id = current_user.id
+    @chat_room.user = current_user
     if @chat_room.save
       redirect_to my_chat_rooms_path
     else
@@ -57,6 +57,6 @@ class My::ChatRoomsController < ApplicationController
   end
 
   def chat_room_allowed_params
-    params.require(:chat_room).permit(:title, :description, :photo, chat_room_tags: [:id, :_destroy])
+    params.require(:chat_room).permit(:title, :description, :photo, chat_room_tags_attributes: [ :tag_id, :_destroy ])
   end
 end

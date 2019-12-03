@@ -1,16 +1,122 @@
 // Specific CSS for your home-page
+.homepage {
+  background-color: white;
+
+}
+
+
+.home-banner {
+  background-image: url("banner-img1.png");
+  height: 75vh;
+  background-size: cover;
+  background-position: 50% 18%;
+  padding: 150px 0;
+    border-radius: 0 0 85% 85% / 20%;
+  margin-bottom:50px;
+
+
+}
+
+.home-text {
+ margin-left: 10%;
+}
+
+
+.home-banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.home-banner p {
+  font-size: 24px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+
+
+
+
+
+
+
+.one-text{
+  padding-right: 100px;
+}
+
+.one-img {
+  background-image: url("img-first.png");
+  height:35vh;
+  margin-bottom: 20px;
+
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.two-text{
+  padding-left: 100px;
+}
+
+.two-img {
+  background-image: url("img-second.png");
+  height:35vh;
+  margin-bottom: 20px;
+
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.tiers-text{
+  padding-right: 100px;
+}
+
+.tiers-img {
+  background-image: url("img-tiers.png");
+  height:35vh;
+  margin-bottom: 20px;
+
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .wraphome {
   // background-image: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(55,55,55,0.1)),url("https://marketplace.canva.com/MADmjDN8-X0/1/screen_2x/canva-sans-titre-MADmjDN8-X0.jpg");
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(55,55,55,0.1)),url("soap-bubble.jpg");
+  background-image: url("soap-bubble.jpg");
   background-size: cover;
   padding: 120px 0;
   color: white;
 }
 
-.descriptions {
-  background-image: linear-gradient(to bottom, rgba( 0, 0, 0, 0 ), rgba(244,244,244, 255)), url("backgroundimage.png");
-  padding: 80px;
-  background-size: cover;
-}
+// .descriptions {
+//   background-image: linear-gradient(to top, rgba( 0, 0, 0, 0 ), rgba(244,244,244, 255)), url("backgroundimage.png");
+//   padding: 80px;
+//   background-size: cover;
+//   background-image: linear-gradient(to bottom, rgba( 0, 0, 0, 0 ), rgba(244,244,244, 255)), url("backgroundimage.png");
+// }
 

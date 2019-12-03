@@ -45,6 +45,9 @@ class My::ChatRoomsController < ApplicationController
     end
   end
 
+  def delete
+  end
+
   def destroy
     @chat_room.destroy
     redirect_to my_chat_rooms_path(@chat_room), notice: 'The chatroom has been deleted.'

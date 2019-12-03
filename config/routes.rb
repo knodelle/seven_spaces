@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   root to: 'pages#home', as: "home"
 
   resources :subscriptions, only: [ :show, :update ]
-  resources :chat_room_tags, only: [ :new, :create ] # ??
+  resources :chat_room_tags, only: [ :new, :create, :destroy ] # ??
 
   resources :chat_rooms, only: :index do
     resources :subscriptions, only: :index

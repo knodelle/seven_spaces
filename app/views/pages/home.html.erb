@@ -3,9 +3,10 @@
     <div class="container home-text mb-5">
       <h1>Discutez avec <strong>votre</strong> communauté</h1>
       <p>Rejoignez les salons sur les sujets qui vous passionnent</p>
-      <a class="btn seven-button" href="#">Rejoignez un salon</a>
+      <%= link_to "Rejoindre un salon", chat_rooms_path, class: "button seven-button" %>
     </div>
   </div>
+
 
 
 <!-- <div class="descriptions text-center">
@@ -26,10 +27,10 @@
     <p></p>
   </div> -->
 
-<blockquote class="blockquote text-center mb-5">
-  <p class="mb-0">On ne vit réellement que quand on jouit de la bienveillance des autres.</p>
-  <footer class="blockquote-footer"><cite title="Source Title">Goethe</cite></footer>
-</blockquote>
+  <blockquote class="blockquote text-center mb-5">
+    <p class="mb-0">On ne vit réellement que quand on jouit de la bienveillance des autres.</p>
+    <footer class="blockquote-footer"><cite title="Source Title">Goethe</cite></footer>
+  </blockquote>
 
 
 
@@ -75,20 +76,23 @@
     </div>
   </div>
 
-
-
-<div class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fab fa-github"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
+  <div class='text-center mt-5 mb-5'>
+  <%= link_to "Lancez-vous : Rejoignez un salon dès maintenant !", chat_rooms_path, class: "button seven-button" %>
   </div>
-  <div class="footer-copyright">
-    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+
+  <div class="footer">
+    <div class="footer-links">
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <div class="footer-copyright">
+      This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+    </div>
   </div>
-</div>
+
 
 </div>
 

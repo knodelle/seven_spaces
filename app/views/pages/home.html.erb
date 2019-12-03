@@ -1,29 +1,20 @@
-<div class="wraphome">
-  <div class="container">
-
-    <h1>Bienvenue sur Seven Spaces</h1>
-    <h4>Venez rejoindre votre communauté</h4>
-
-    <%= link_to search_path do  %>
-      <h4>Chercher une chat room </h4>
-    <% end %>
-
-    <%= link_to my_chat_rooms_path do  %>
-      <h4 >Mes chat rooms</h4>
-    <% end %>
-
-    <%= link_to chat_rooms_path do  %>
-      <h4>Liste des chat rooms</h4>
-    <% end %>
+<div class='homepage '>
+  <div class="home-banner">
+    <div class="container home-text mb-5">
+      <h1>Discutez avec <strong>votre</strong> communauté</h1>
+      <p>Rejoignez les salons sur les sujets qui vous passionnent</p>
+      <%= link_to "Rejoindre un salon", chat_rooms_path, class: "button seven-button" %>
+    </div>
   </div>
-</div>
 
- <div class="descriptions">
+
+
+<!-- <div class="descriptions text-center">
     <h2 class="titre">
       Seven Spaces</h2>
     <p>Contrairement à d'autres lieux de discussion en ligne, Seven Spaces permet d'offrir des espaces encadrés autour de thématiques spécifiques</p>
 
-    <h4><strong>7</strong> personnes par espace de discussion</h4>
+    <h4><strong>7</strong> personnes par salon</h4>
     <p>Discuttez en petit comité, dans la bienveillance</p>
 
     <h4><strong>7</strong> salons de discussion par utilisateur.ice</h4>
@@ -33,18 +24,75 @@
     <p>L'idée est de vous offrir des espaces de discussions proches de l'instantanné, de respecter au mieux votre vie privée, et de réduire notre impact écologique</p>
 
     <h4>Pourquoi 7 ?</h4>
-    <p>Le chiffre 7 correspond au nombre d'unités d'informations que la mémoire est capable de retenir à court terme. Nous avons choisi d'en faire l'élément central de cette application, pour qu'elle se rapproche autant que possible de la vrai vie. Sur Seven Spaces vous disposez d'espaces de proximité et une confiance entre les utilisateur.ices</p>
+    <p></p>
+  </div> -->
+
+  <blockquote class="blockquote text-center mb-5">
+    <p class="mb-0">On ne vit réellement que quand on jouit de la bienveillance des autres.</p>
+    <footer class="blockquote-footer"><cite title="Source Title">Goethe</cite></footer>
+  </blockquote>
+
+
+
+
+  <div class='one'>
+    <div class='row text-justify  d-flex justify-content-between '>
+      <div class='one-img col-12 col-lg-6'>
+      </div>
+      <div class='one-text col-12 col-lg-6 mt-2 container' >
+        <h1><span class="underline--magical">Le concept</span></h1>
+        <h4>Discutez en petit comité avec bienveillance</h4>
+        <p>Intégrez une communauté est souvent un défi, car on ne sait si les personnes avec qui l'on discute partagent nos valeurs.
+        Seven Spaces propose de créer du lien entre passionnés dans un climat serein et bienvaillant autour de la thématique du chiffre 7.
+        Contrairement à d'autres lieux de discussion en ligne, Seven Spaces permet d'offrir des espaces encadrés autour de thématiques spécifiques</p>
+      </div>
+    </div>
   </div>
 
-<div class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fab fa-github"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
+  <div class='two'>
+    <div class='row text-justify d-flex justify-content-between'>
+      <div class='two-text col-12 col-lg-6 mt-2 '>
+        <h1><span class="underline--magical">L'engagement</span></h1>
+        <h4> <strong>7</strong> salons de discussions par utilisateur</h4>
+        <p>Afin de garantir la participation de tous.tes, vous pourrez rejoindre ou créer jusqu'à 7 salons de discussion.
+          Maîtrisez votre espace personnel et faites de vos salons un lieu idéal pour vous ressourcer.
+          Ce site ne conserve vos messages que 7 jours pourrespecter au mieux votre vie privée, et pour réduire l'impact écologique par une démarche low-tech</p>
+      </div>
+      <div class='two-img col-12 col-lg-6 '>
+      </div>
+    </div>
   </div>
-  <div class="footer-copyright">
-    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+
+  <div class='tiers'>
+    <div class='row text-justify d-flex justify-content-between'>
+      <div class='tiers-img col-12 col-lg-6 '>
+      </div>
+      <div class='tiers-text col-12 col-lg-6 mt-2'>
+        <h1><span class="underline--magical">Le chiffre 7</span></h1>
+        <h4>Le 7 correspond au nombre d'unités d'informations que la mémoire est capable de retenir à court terme.</h4>
+          <p>Nous avons choisi d'en faire l'élément central de cette application, pour qu'elle se rapproche autant que possible de votre façon de partager vos passions .
+        Sur Seven Spaces vous disposez d'espaces de proximité et une confiance entre les utilisateur.ices.</p>
+      </div>
+    </div>
   </div>
+
+  <div class='text-center mt-5 mb-5'>
+  <%= link_to "Lancez-vous : Rejoignez un salon dès maintenant !", chat_rooms_path, class: "button seven-button" %>
+  </div>
+
+  <div class="footer">
+    <div class="footer-links">
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <div class="footer-copyright">
+      This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+    </div>
+  </div>
+
+
 </div>
+

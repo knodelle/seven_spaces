@@ -1,11 +1,19 @@
 // Specific CSS for your home-page
+.homepage {
+  background-color: white;
+
+}
+
 
 .home-banner {
   background-image: url("banner-img1.png");
-  height:60vh;
+  height: 75vh;
   background-size: cover;
   background-position: 50% 18%;
   padding: 150px 0;
+    border-radius: 0 0 85% 85% / 20%;
+  margin-bottom:100px;
+
 
 }
 
@@ -29,16 +37,36 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
+
+
+
+
+
+
+
 .one-text{
 
 }
 
 .one-img {
-  background-image: url("banner-img1.png");
-  height:60vh;
-  background-size: cover;
-  background-position: 50% 18%;
-  padding: 150px 0;
+  background-image: url("img-first.png");
+  height:50vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.two-img {
+  background-image: url("img-second.png");
+  height:50vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.tiers-img {
+  background-image: url("img-tiers.png");
+  height:50vh;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 
@@ -71,9 +99,10 @@
   color: white;
 }
 
-.descriptions {
-  background-image: linear-gradient(to bottom, rgba( 0, 0, 0, 0 ), rgba(244,244,244, 255)), url("backgroundimage.png");
-  padding: 80px;
-  background-size: cover;
-}
+// .descriptions {
+//   background-image: linear-gradient(to top, rgba( 0, 0, 0, 0 ), rgba(244,244,244, 255)), url("backgroundimage.png");
+//   padding: 80px;
+//   background-size: cover;
+//   background-image: linear-gradient(to bottom, rgba( 0, 0, 0, 0 ), rgba(244,244,244, 255)), url("backgroundimage.png");
+// }
 

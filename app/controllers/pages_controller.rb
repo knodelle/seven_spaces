@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home] # pas sure de cette commande
+  layout "home"
 
   def home
     @chat_rooms = ChatRoom.first

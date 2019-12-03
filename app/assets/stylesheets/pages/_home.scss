@@ -6,7 +6,7 @@
 
 
 .home-banner {
-  background-image: url("banner-img1.png");
+  background-image: image-url("banner-img1.png");
   height: 75vh;
   background-size: cover;
   background-position: 50% 18%;
@@ -49,7 +49,7 @@
 }
 
 .one-img {
-  background-image: url("img-first.png");
+  background-image: image-url("img-first.png");
   height:35vh;
   margin-bottom: 20px;
 
@@ -62,7 +62,7 @@
 }
 
 .two-img {
-  background-image: url("img-second.png");
+  background-image: image-url("img-second.png");
   height:35vh;
   margin-bottom: 20px;
 
@@ -75,7 +75,7 @@
 }
 
 .tiers-img {
-  background-image: url("img-tiers.png");
+  background-image: image-url("img-tiers.png");
   height:35vh;
   margin-bottom: 20px;
 

@@ -12,7 +12,7 @@
   background-position: 50% 18%;
   padding: 150px 0;
     border-radius: 0 0 85% 85% / 20%;
-  margin-bottom:100px;
+  margin-bottom:50px;
 
 
 }
@@ -45,26 +45,40 @@
 
 
 .one-text{
-
+  padding-right: 100px;
 }
 
 .one-img {
   background-image: url("img-first.png");
-  height:50vh;
+  height:35vh;
+  margin-bottom: 20px;
+
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+.two-text{
+  padding-left: 100px;
 }
 
 .two-img {
   background-image: url("img-second.png");
-  height:50vh;
+  height:35vh;
+  margin-bottom: 20px;
+
   background-size: contain;
   background-repeat: no-repeat;
 }
 
+.tiers-text{
+  padding-right: 100px;
+}
+
 .tiers-img {
   background-image: url("img-tiers.png");
-  height:50vh;
+  height:35vh;
+  margin-bottom: 20px;
+
   background-size: contain;
   background-repeat: no-repeat;
 }

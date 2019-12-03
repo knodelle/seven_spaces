@@ -1,0 +1,40 @@
+<div class="navbar navbar-expand-sm navbar-light" style='position:absolute; top:0; left:0; width:100%, background:transparent' >
+  <%= link_to home_path, class: "navbar-brand" do %>
+    <i class="fas fa-peace logo-seven"></i>
+    <% end %>
+
+  <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <% if user_signed_in? %>
+        <li class="nav-item active">
+          <%= link_to "Home", home_path , class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Mes chat rooms", my_chat_rooms_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Mes informations", edit_user_registration_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item dropdown">
+          <%= image_tag current_user.avatar, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Action", "#", class: "dropdown-item" %>
+            <%= link_to "Another action", "#", class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+

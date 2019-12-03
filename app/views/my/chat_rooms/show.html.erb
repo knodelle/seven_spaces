@@ -13,7 +13,7 @@
           <h3>Salons</h3>
         </div>
         <% @chat_rooms.each do |chat_room| %>
-          <div class="card-my-chat-rooms">
+          <div class="card-my-chat-rooms activable">
             <div class="image-slot">
               <div class="image-slot">
                 <%= cl_image_tag chat_room.photo, class: "card-my-chat-rooms-image" %>
@@ -24,13 +24,13 @@
               <p><%= chat_room.description.first(10) %></p>
             </div>
             <div class="links-seven-show">
-              <%= link_to "Rejoindre le salon", my_chat_room_path(chat_room), class: "fas fa-sign-in-alt link-seven"  %>
+              <%= link_to "Rejoindre le salon", my_chat_room_path(chat_room), class: "fas fa-sign-in-alt link-seven active"  %>
               <%= link_to " Demandes", chat_room_subscriptions_path(chat_room), class: "far fa-envelope link-seven"  %>
             </div>
           </div>
         <% end %>
         <% @my_subscriptions.each do |my_subscription| %>
-          <div class="card-my-chat-rooms">
+          <div class="card-my-chat-rooms activable">
             <div class="image-slot">
               <%= cl_image_tag "my_subscription.chat_room.photo", class: "card-my-chat-rooms-image" %>
             </div>
@@ -39,7 +39,7 @@
               <p><%= my_subscription.chat_room.description.first(10) %></p>
             </div>
             <div class="links-seven-show">
-              <%= link_to "Rejoindre le salon", my_chat_room_path(my_subscription.chat_room), class: "fas fa-sign-in-alt link-seven"  %>
+              <%= link_to "Rejoindre le salon", my_chat_room_path(my_subscription.chat_room), class: "fas fa-sign-in-alt link-seven active"  %>
               <%= link_to "Quitter le salon" , my_subscription_path(my_subscription), method: :delete, class: "fas fa-door-open link-seven"%>
             </div>
           </div>

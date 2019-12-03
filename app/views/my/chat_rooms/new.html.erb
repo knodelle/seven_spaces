@@ -13,31 +13,67 @@
       <%= f.input :photo_cache, as: :hidden %>
     </div>
 
-    <%#= f.association :tags, as: :check_boxes %>
+    <div id="add-tags">
+        <%= f.simple_fields_for :chat_room_tags, ChatRoomTag.new do |chat_room_tag| %>
+          <%= chat_room_tag.input :tag_id, collection: Tag.all %>
+          <!-- #, input_html: { class: "select2" } %> -->
+        <% end %>
 
-  <div class="container">
+        <%= f.simple_fields_for :chat_room_tags, ChatRoomTag.new do |chat_room_tag| %>
+          <%= chat_room_tag.input :tag_id, collection: Tag.all %>
+          <!-- #, input_html: { class: "select2" } %> -->
+        <% end %>
+
+    </div>
+
+<div class="form-group select optional chat_room_chat_room_tags_tag_id">
+  <label class="select optional" for="chat_room_chat_room_tags_attributes_1_tag_id">Tag</label>
+  <select class="form-control select optional" name="chat_room[chat_room_tags_attributes][1][tag_id]" id="chat_room_chat_room_tags_attributes_1_tag_id">
+    <option value=""></option>
+    <option value="1">informatique</option>
+    <option value="2">cuisine</option>
+    <option value="3">sport</option>
+  </select>
+</div>
+
+
+<!-- <div class="form-group select optional chat_room_chat_room_tags_tag_id">
+  <label class="select optional" for="chat_room_chat_room_tags_attributes_3_tag_id">Tag</label>
+  <select class="form-control select optional select2 select2-hidden-accessible" name="chat_room[chat_room_tags_attributes][3][tag_id]" id="chat_room_chat_room_tags_attributes_3_tag_id" data-select2-id="chat_room_chat_room_tags_attributes_3_tag_id" tabindex="-1" aria-hidden="true">
+    <option value="" data-select2-id="8"></option>
+    <option value="1">informatique</option>
+    <option value="2">cuisine</option>
+    <option value="3">sport</option>
+  </select>
+  <span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="7" style="width: 819px;">
+    <span class="selection">
+      <span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-chat_room_chat_room_tags_attributes_3_tag_id-container">
+        <span class="select2-selection__rendered" id="select2-chat_room_chat_room_tags_attributes_3_tag_id-container" role="textbox" aria-readonly="true">
+
+        </span>
+        <span class="select2-selection__arrow" role="presentation">
+          <b role="presentation"></b>
+        </span>
+      </span>
+    </span>
+    <span class="dropdown-wrapper" aria-hidden="true"></span>
+  </span>
+</div> -->
+
+<!--   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 col-md-8">
         <%#= simple_form_for :search, url: search_path, method: :get do |f| %>
-          <%#= f.input :tags, collection: Tag.all, input_html: { multiple: true, class: "select2" }, include_hidden: false %>
-          <%#= f.submit "+", class: 'btn btn-primary' %>
-        <%# end %>
+        <%#= f.input :tags, collection: Tag.all, input_html: { multiple: true, class: "select2" }, include_hidden: false %>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <div class="d-flex justify-content-center">
     <div class="form-actions">
-      <%= f.button :submit, "Créer", class: "seven-button" %>
-    </div>
+      <%= f.button :submit, "Sauvegarder", class: 'seven-button' %>
   <% end %>
 
   <%= link_to "Retour", :back, class: "seven-button" %>
   </div>
 </div>
-
-
-<!-- Comment faire pour faire autant de check boxes que de tags ?
-Comment lier aux tags ?
-Problème de création de chat_room_tags à la création d'une chat_room (formulaire new de my chat_room à adapter selon cocoon) -->
-

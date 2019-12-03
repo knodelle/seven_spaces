@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2019_11_29_140343) do
   end
 
   create_table "messages", force: :cascade do |t|
+    t.string "content"
     t.bigint "chat_room_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false

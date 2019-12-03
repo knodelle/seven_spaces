@@ -45,44 +45,46 @@
 }
 
 .card-my-chat-rooms {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
   overflow: hidden;
   height: 100px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  justify-content: space-between;
+  text-align: center;
   border-radius: 8px;
-  width: 100%;
-  margin: 5px;
-  position: relative;
-  img {
-    height: 100px;
-    width: auto;
-    object-fit: cover;
+  width: 95%;
+  margin: 15px;
+
+  .links-seven-show {
+    text-align: left;
   }
 }
 
 .card-my-chat-rooms-infos {
-  width: 180px;
-}
-
-.my-chat-rooms {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.card-chat-room-users {
-  margin-top: 15px;
-  height: 50%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  // width: 300px;
+  grid-column: 2/4;
+  padding: 5px;
 }
 
 .card-title-chat-room{
   margin-top: 15px;
+  height: 75px;
+  display: flex;
+  border-top: 2px solid $midnight-green;
+  border-left: 2px solid $midnight-green;
+  border-right: 2px solid $midnight-green;
+  background: white;
+  h3 {
+    color: $midnight-green;
+  }
+}
 
+.card-my-chat-rooms-image {
+  height: 100px;
+  width: auto;
 }
 
 //list-inline justify-content-center'

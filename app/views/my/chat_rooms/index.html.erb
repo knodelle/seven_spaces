@@ -25,7 +25,7 @@
               </div>
               <div class="card-my-chat-rooms-infos">
                 <h5><%= chat_room.title %></h5>
-                <p><%= chat_room.description.first(5) %></p>
+                <p><%= chat_room.description.first(40) %></p>
               </div>
               <div class="links-seven">
                 <%= link_to "Rejoindre le salon", my_chat_room_path(chat_room), class: "fas fa-sign-in-alt link-seven"  %>

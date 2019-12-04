@@ -1,25 +1,30 @@
 
-<%= link_to "Retour", :back %>
-<br>
-  <div class="container subscription-container">
-    <h2><%= @chat_room.title %></h2>
-    <%= simple_form_for [@chat_room, :my, @subscription] do |f| %>
-      <%= f.error_notification %>
+<div class="container body-subscription">
+  <br>
+  <%= link_to "Retour", :back, class: "seven-button" %>
+  <br>
+  <br>
+    <div class="container subscription-container">
+      <h2><%= @chat_room.title %></h2>
+      <%= simple_form_for [@chat_room, :my, @subscription] do |f| %>
+        <%= f.error_notification %>
 
-      <div class="form-inputs">
-        <div class="chat_room_description">
-          <p><%= @chat_room.description %></p>
+        <div class="form-inputs">
+          <div class="chat_room_description">
+            <p><%= @chat_room.description %></p>
+          </div>
+          <br>
+          <%= f.input :description,
+                      as: :text,
+                      label: false,
+                      placeholder: "Expliquez à #{@chat_room.user.username} pourquoi vous souhaitez rejoindre son salon de discussion",
+                      class: "message-area" %>
         </div>
-        <br>
-        <%= f.input :description,
-                    label: false,
-                    placeholder: "Expliquez à #{@chat_room.user.username} pourquoi vous souhaitez rejoindre son salon de discussion",
-                    class: "message-area" %>
-      </div>
 
-      <div class="send-button">
-        <%= f.button :submit, "Envoyer une demande",
-        class: "subscription-button seven-button" %>
-      </div>
-    <% end %>
+        <div class="send-button">
+          <%= f.button :submit, "Envoyer une demande",
+          class: "subscription-button seven-button" %>
+        </div>
+      <% end %>
+    </div>
   </div>

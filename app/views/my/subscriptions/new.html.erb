@@ -2,9 +2,10 @@
 <div class="container body-subscription">
 
     <div class="container subscription-container">
-<div class="header-edit">
-  <h1>Rejoindre un salon</h1>
-</div>
+      <div class="header-edit">
+        <h1>Rejoindre un salon</h1>
+      </div>
+
       <h2><%= @chat_room.title %></h2>
       <%= simple_form_for [@chat_room, :my, @subscription] do |f| %>
         <%= f.error_notification %>

@@ -1,13 +1,28 @@
-// @media(min-width:979px) {
-//   .chatroom {
-//     .card-chatroom {
-//       height:300px;
-//       img {
-//         height: 100%;
-//       }
-//     }
-//   }
-// }
+.card {
+  border-radius:16px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  margin: 25px;
+}
+
+.cstm-height-card .card-img-top {
+  height: 100px;
+  object-fit: cover;
+
+
+
+@media(min-width:979px) {
+  .chatroom {
+    .card-chatroom {
+      height:300px;
+      img {
+        height: 100%;
+      }
+    }
+  }
+}
+
+
+}
 
 .card-chatroom {
   overflow: hidden;
@@ -102,7 +117,7 @@
   width: auto;
 }
 
-//list-inline justify-content-center'
+// list-inline justify-content-center'
 // . {
 //   width: 700px;
 //   margin: 40px auto;
@@ -126,4 +141,3 @@
 //     width: 300px;
 //   }
 // }
-

@@ -1,6 +1,5 @@
 development:
-  adapter: redis
-  url: 'redis://localhost:6379/1'
+  adapter: async
 
 test:
   adapter: async
@@ -8,4 +7,3 @@ test:
 production:
   adapter: redis
   url: <%= ENV['redis://rediscloud:zvZ8KNHvXBXtWEG5D1p95YeaeyB09Smy@redis-12007.c77.eu-west-1-1.ec2.cloud.redislabs.com:12007'] %>
-  channel_prefix: seven_spaces_production

@@ -118,7 +118,8 @@
         received: (data) => {
           console.log(data);
           if (data.current_user_id !== <%= current_user.id %>) {
-            const messagesContainer = document.querySelector('.messages');
+            const messagesContainer = document.querySelector('#messages');
+            console.log(messagesContainer);
             messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
             scrollLastMessageIntoView();
           }

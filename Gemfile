@@ -7,7 +7,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.2.3'
-gem 'redis', '3.0.0'
+gem 'redis'
 gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
 
@@ -19,6 +19,8 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'sprockets', '>= 3.0.0'
 gem 'sprockets-es6'
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

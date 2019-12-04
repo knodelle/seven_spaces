@@ -1,4 +1,9 @@
-<h2>Sign up</h2>
+<div class="container body-subscription">
+
+<div class="container subscription-container">
+  <div class="header-edit">
+    <h2>CRÉER UN COMPTE</h2>
+  </div>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
@@ -6,23 +11,26 @@
   <div class="form-inputs">
     <%= f.input :username,
                 required: true,
-                input_html: { autocomplete: "username" }%>
+                label: "Psoeudo",
+                input_html: { autocomplete: "Username" }%>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "email" }%>
+                input_html: { autocomplete: "Email" }%>
     <%= f.input :password,
                 required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                label: "Mot de passe",
+                hint: ("#{@minimum_password_length} caractères minimum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
+                label: "Retapez de passe",
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :avatar, as: :file, label: "ajoutez un avatar si vous le souhaitez" %>
+    <%= f.input :avatar, as: :file, label: "Ajoutez un avatar si vous le souhaitez" %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.button :submit, "Créer un compte", class: "seven-button" %>
   </div>
 <% end %>
 

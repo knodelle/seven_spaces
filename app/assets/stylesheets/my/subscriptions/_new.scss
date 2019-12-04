@@ -1,0 +1,44 @@
+
+
+.subscription-container {
+  padding: 40px;
+  width: 80%;
+  overflow: hidden;
+  height: auto;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 32px;
+  width: 80%;
+  background-position: center;
+  text-align: center;
+  img {
+    height: 32vh;
+    width: auto;
+    object-fit: cover;
+  }
+  h2 {
+    margin-left: 8px;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0;
+    width: auto;
+  }
+}
+
+.chat_room_description {
+    font-size: 20px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 16px;
+}
+
+
+.message-area {
+  width: 80%;
+  padding: 50px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}

@@ -13,6 +13,9 @@
           <h3>Salons</h3>
         </div>
         <% @chat_rooms.each do |chat_room| %>
+        <% if chat_room == @chat_room %>
+
+        <% end %>
           <div class="card-my-chat-rooms activable">
             <div class="image-slot">
               <div class="image-slot">
@@ -58,25 +61,14 @@
         </div>
       </div>
       <div class="chat-room">
-        <div class="messages-area">
-          <% @messages.each do |message| %>
-            <div class="d-flex">
-              <p class="username-chat">< <%=message.user.username%> ></p>
-              <p><%= message.content %></p>
-            </div>
+         <div id="messages">
+          <% @chat_room.messages.order(created_at: :asc).each do |message| %>
+            <%= render "my/messages/message", message: message %>
           <% end %>
         </div>
-        <%= simple_form_for [:my, @chat_room, @message] do |f| %>
-          <%= f.error_notification %>
-          <div class="text-message">
-            <div class="text-message-area">
-              <%= f.input :content, label: "Message" %>
-            </div>
-            <div class="send-button">
-              <%= f.button :submit, "Envoyer", class: "seven-button" %>
-            </div>
-          </div>
-        <% end %>
+        <div id="new_message">
+          <%= render 'my/messages/form', chat_room: @chat_room, message: Message.new %>
+        </div>
       </div>
     </div>
 
@@ -109,3 +101,29 @@
     </div>
   </div>
 </div>
+<% content_for :after_js do %>
+    <script>
+    function scrollLastMessageIntoView() {
+      const messages = document.querySelectorAll('.message');
+      const lastMessage = messages[messages.length - 1];
+      console.log(messages);
+      if (lastMessage !== undefined) {
+        lastMessage.scrollIntoView();
+      }
+    };
+    scrollLastMessageIntoView();
+    App['chat_room_<%= @chat_room.id %>'] = App.cable.subscriptions.create(
+      { channel: 'ChatRoomsChannel', chat_room_id: <%= @chat_room.id %> },
+      {
+        received: (data) => {
+          console.log(data);
+          if (data.current_user_id !== <%= current_user.id %>) {
+            const messagesContainer = document.querySelector('.messages');
+            messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
+            scrollLastMessageIntoView();
+          }
+        }
+      }
+    )
+  </script>
+<% end %>

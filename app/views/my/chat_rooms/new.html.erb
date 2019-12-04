@@ -1,109 +1,120 @@
+
+<div class="subscription-container">
 <div class="header-edit">
-  <h1>Créer une chat room</h1>
+  <h1>Créer un salon</h1>
+</div>
+  <div class="container">
+    <%= simple_form_for [:my, @chat_room] do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <h4> <%= f.input :title, label: "Titre" %> </h4>
+        <h4> <%= f.input :description, label: "Ajoutez une description", placeholder: "Quelles sont les règles a suivre dans votre chat room ? Quels en sont les critères d'entrée ?"  %> </h4>
+        <br>
+        <%= f.input :photo, as: :file, label: "Ajoutez une image" %>
+        <%= f.input :photo_cache, as: :hidden %>
+      </div>
+
+    <br>
+
+    <div class="tag-container mt-3">
+      <div class="tag-item mt-3">
+        <div id="Ajoutez des tags"><p>Utilisez des tags pour définir la thématique de votre salon</p></div>
+      </div>
+       <span class="btn-add-tags seven-button btn btn-dark">+ Ajouter un tag</span>
+     </div>
+
+
+
+    <div class="d-flex justify-content-center">
+      <div class="form-actions">
+        <%= f.button :submit, "Sauvegarder", class: 'seven-button' %>
+         <% end %>
+        <%= link_to "Retour", :back, class: "seven-button" %>
+      </div>
+    </div>
 </div>
 
-<div class="container">
-  <%= simple_form_for [:my, @chat_room] do |f| %>
-    <%= f.error_notification %>
-
-    <div class="form-inputs">
-      <%= f.input :title, label: "Titre" %>
-      <%= f.input :description, label: "Ajoutez une description", placeholder: "Quelles sont les règles a suivre dans votre chat room ? Quels en sont les critères d'entrée ?"  %>
-      <%= f.input :photo, as: :file, label: "Ajoutez une image" %>
-      <%= f.input :photo_cache, as: :hidden %>
-    </div>
-
-  <!--    <div class="form-group select optional chat_room_chat_room_tags_tag_id">
-      <label class="select optional" for="chat_room_chat_room_tags_attributes_0_tag_id">
-        Tag
-      </label>
-      <select class="form-control select optional select2" name="chat_room[chat_room_tags_attributes][0][tag_id]" id="chat_room_chat_room_tags_attributes_0_tag_id">
-        <option value="1">
-          informatique
-        </option>
-        <option selected="selected" value="2">
-          cuisine
-        </option>
-        <option value="3">
-          sport
-        </option>
-      </select>
-    </div> -->
-
-      <div class="tag-item">
-        <%#= f.simple_fields_for :chat_room_tags, ChatRoomTag.new do |chat_room_tag| %>
-          <%#= chat_room_tag.input :tag_id, collection: Tag.all, selected: 2, input_html: { class: "select2" } %>
-        <%# end %>
-        <div id="Ajoutez des tags">
-      </div>
-    </div>
-
-    <span class="btn-add-tags btn btn-dark">add tag</span>
-<!-- <div class="form-group select optional chat_room_chat_room_tags_tag_id">
-  <label class="select optional" for="chat_room_chat_room_tags_attributes_0_tag_id">
-    Tag
-  </label>
-  <select class="form-control select optional select2" name="chat_room[chat_room_tags_attributes][0][tag_id]" id="chat_room_chat_room_tags_attributes_0_tag_id">
-    <option value="1">
-      informatique
-    </option>
-    <option selected="selected" value="2">
-      cuisine
-    </option>
-    <option value="3">
-      sport
-    </option>
-  </select>
-</div> -->
 
 
-<!-- <div class="form-group select optional chat_room_chat_room_tags_tag_id">
-  <label class="select optional" for="chat_room_chat_room_tags_attributes_3_tag_id">Tag</label>
-  <select class="form-control select optional select2 select2-hidden-accessible" name="chat_room[chat_room_tags_attributes][3][tag_id]" id="chat_room_chat_room_tags_attributes_3_tag_id" data-select2-id="chat_room_chat_room_tags_attributes_3_tag_id" tabindex="-1" aria-hidden="true">
-    <option value="" data-select2-id="8"></option>
-    <option value="1">informatique</option>
-    <option value="2">cuisine</option>
-    <option value="3">sport</option>
-  </select>
-  <span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="7" style="width: 819px;">
-    <span class="selection">
-      <span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-chat_room_chat_room_tags_attributes_3_tag_id-container">
-        <span class="select2-selection__rendered" id="select2-chat_room_chat_room_tags_attributes_3_tag_id-container" role="textbox" aria-readonly="true">
+          <%#= f.simple_fields_for :chat_room_tags, ChatRoomTag.new do |chat_room_tag| %>
+            <%#= chat_room_tag.input :tag_id, collection: Tag.all, selected: 2, input_html: { class: "select2" } %>
+          <%# end %>
 
-        </span>
-        <span class="select2-selection__arrow" role="presentation">
-          <b role="presentation"></b>
-        </span>
-      </span>
-    </span>
-    <span class="dropdown-wrapper" aria-hidden="true"></span>
-  </span>
-</div> -->
+    <!--    <div class="form-group select optional chat_room_chat_room_tags_tag_id">
+        <label class="select optional" for="chat_room_chat_room_tags_attributes_0_tag_id">
+          Tag
+        </label>
+        <select class="form-control select optional select2" name="chat_room[chat_room_tags_attributes][0][tag_id]" id="chat_room_chat_room_tags_attributes_0_tag_id">
+          <option value="1">
+            informatique
+          </option>
+          <option selected="selected" value="2">
+            cuisine
+          </option>
+          <option value="3">
+            sport
+          </option>
+        </select>
+      </div> -->
 
-<!--   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-12 col-md-8">
-        <%#= simple_form_for :search, url: search_path, method: :get do |f| %>
-        <%#= f.input :tags, collection: Tag.all, input_html: { multiple: true, class: "select2" }, include_hidden: false %>
-      </div>
-    </div>
-  </div> -->
 
   <!-- <div class="form-group select optional chat_room_chat_room_tags_tag_id">
     <label class="select optional" for="chat_room_chat_room_tags_attributes_0_tag_id">
-    Tag
+      Tag
     </label>
-    <select class="form-control select optional" name="chat_room[chat_room_tags_attributes][0][tag_id]" id="chat_room_chat_room_tags_attributes_0_tag_id">
-    <option value="1">informatique</option>
-    <option selected="selected" value="2">cuisine</option>
-    <option value="3">sport</option></select></div>
+    <select class="form-control select optional select2" name="chat_room[chat_room_tags_attributes][0][tag_id]" id="chat_room_chat_room_tags_attributes_0_tag_id">
+      <option value="1">
+        informatique
+      </option>
+      <option selected="selected" value="2">
+        cuisine
+      </option>
+      <option value="3">
+        sport
+      </option>
+    </select>
   </div> -->
 
-  <div class="d-flex justify-content-center">
-    <div class="form-actions">
-      <%= f.button :submit, "Sauvegarder", class: 'seven-button' %>
-  <% end %>
 
-  <%= link_to "Retour", :back, class: "seven-button" %>
-  </div>
-</div>
+  <!-- <div class="form-group select optional chat_room_chat_room_tags_tag_id">
+    <label class="select optional" for="chat_room_chat_room_tags_attributes_3_tag_id">Tag</label>
+    <select class="form-control select optional select2 select2-hidden-accessible" name="chat_room[chat_room_tags_attributes][3][tag_id]" id="chat_room_chat_room_tags_attributes_3_tag_id" data-select2-id="chat_room_chat_room_tags_attributes_3_tag_id" tabindex="-1" aria-hidden="true">
+      <option value="" data-select2-id="8"></option>
+      <option value="1">informatique</option>
+      <option value="2">cuisine</option>
+      <option value="3">sport</option>
+    </select>
+    <span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="7" style="width: 819px;">
+      <span class="selection">
+        <span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-chat_room_chat_room_tags_attributes_3_tag_id-container">
+          <span class="select2-selection__rendered" id="select2-chat_room_chat_room_tags_attributes_3_tag_id-container" role="textbox" aria-readonly="true">
+
+          </span>
+          <span class="select2-selection__arrow" role="presentation">
+            <b role="presentation"></b>
+          </span>
+        </span>
+      </span>
+      <span class="dropdown-wrapper" aria-hidden="true"></span>
+    </span>
+  </div> -->
+
+  <!--   <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8">
+          <%#= simple_form_for :search, url: search_path, method: :get do |f| %>
+          <%#= f.input :tags, collection: Tag.all, input_html: { multiple: true, class: "select2" }, include_hidden: false %>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- <div class="form-group select optional chat_room_chat_room_tags_tag_id">
+      <label class="select optional" for="chat_room_chat_room_tags_attributes_0_tag_id">
+      Tag
+      </label>
+      <select class="form-control select optional" name="chat_room[chat_room_tags_attributes][0][tag_id]" id="chat_room_chat_room_tags_attributes_0_tag_id">
+      <option value="1">informatique</option>
+      <option selected="selected" value="2">cuisine</option>
+      <option value="3">sport</option></select></div>
+    </div> -->

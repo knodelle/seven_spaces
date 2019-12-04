@@ -1,10 +1,10 @@
 
 <div class="container body-subscription">
-  <br>
-  <%= link_to "Retour", :back, class: "seven-button" %>
-  <br>
-  <br>
+
     <div class="container subscription-container">
+<div class="header-edit">
+  <h1>Rejoindre un salon</h1>
+</div>
       <h2><%= @chat_room.title %></h2>
       <%= simple_form_for [@chat_room, :my, @subscription] do |f| %>
         <%= f.error_notification %>
@@ -24,7 +24,9 @@
         <div class="send-button">
           <%= f.button :submit, "Envoyer une demande",
           class: "subscription-button seven-button" %>
+          <%= link_to "Retour", :back, class: "seven-button" %>
         </div>
       <% end %>
     </div>
   </div>
+

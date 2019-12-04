@@ -1,13 +1,13 @@
-@media(min-width:979px) {
-  .chatroom {
-    .card-chatroom {
-      height:300px;
-      img {
-        height: 100%;
-      }
-    }
-  }
-}
+// @media(min-width:979px) {
+//   .chatroom {
+//     .card-chatroom {
+//       height:300px;
+//       img {
+//         height: 100%;
+//       }
+//     }
+//   }
+// }
 
 .card-chatroom {
   overflow: hidden;
@@ -20,7 +20,22 @@
     height: 32vh;
     width: auto;
     object-fit: cover;
+    position: relative;
   }
+
+  img:before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 10px;
+  height: 41px;
+  width: 95px;
+  background-color: white;
+  background-image:url('logo_seven2.png');
+  }
+
+
+
   h2 {
     margin-left: 8px;
     font-size: 18px;
@@ -111,3 +126,4 @@
 //     width: 300px;
 //   }
 // }
+

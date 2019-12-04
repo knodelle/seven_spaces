@@ -37,7 +37,7 @@
 }
 
 .room-tag::after {
-  background: #f4F4F4;
+  background: white;
   border-bottom: 13px solid transparent;
   border-left: 10px solid #eee;
   border-top: 13px solid transparent;
@@ -49,9 +49,11 @@
 
 .room-tag:hover {
   background-color: $amazon;
-  color: black;
+  color: white;
+
 }
 
 .room-tag:hover::after {
    border-left-color: $amazon;
+   pointer-events: none;
 }

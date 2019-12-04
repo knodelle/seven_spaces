@@ -95,6 +95,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_cable.url = "ws://www.seven-spaces.xyz/cable"
-  config.action_cable.allowed_request_origins = [ "http://www.seven-spaces.xyz" ]
+  config.action_cable.allowed_request_origins = [ "http://www.seven-spaces.xyz", "https://www.seven-spaces.xyz" ]
 
 end

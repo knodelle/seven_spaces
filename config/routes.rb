@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   get '/search', to: 'pages#search'
 
-  # search by tags
-  # get 'search/:tag', to: 'static#home', as: "search"
+  mount ActionCable.server => "/cable"
 
   root to: 'pages#home', as: "home"
 

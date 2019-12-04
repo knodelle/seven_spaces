@@ -2,12 +2,18 @@ class My::MessagesController < ApplicationController
   def create
     @chat_room = ChatRoom.find(params[:chat_room_id])
     @my_message = Message.new(messages_params)
-    @my_message.user_id = current_user.id
-    @my_message.chat_room_id = @chat_room.id
+    @my_message.chat_room = @chat_room
+    @my_message.user = current_user
     if @my_message.save
-      redirect_to my_chat_room_path(@chat_room)
+      respond_to do |format|
+        format.html { redirect_to my_chat_room_path(@chat_room) }
+        format.js
+      end
     else
-      render :index
+      respond_to do |format|
+        format.html { render "chat_rooms/show" }
+        format.js
+      end
     end
   end
 

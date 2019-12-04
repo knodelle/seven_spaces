@@ -1,0 +1,27 @@
+// app/views/reviews/create.js.erb
+// Here you generate *JavaScript* that would be executed in the browser
+function refreshForm(innerHTML) {
+  const newMessageForm = document.getElementById('new_message');
+  newMessageForm.innerHTML = innerHTML;
+}
+
+function addMessage(messageHTML) {
+  const messages = document.getElementById('messages');
+  messages.insertAdjacentHTML('beforeend', messageHTML);
+}
+console.log("coco");
+<% if @my_message.errors.any? %>
+  refreshForm('<%= j render "my/messages/form", chat_room: @chat_room, message: message %>');
+<% else %>
+  addMessage('<%= j render "my/messages/message", message: @my_message %>');
+  refreshForm('<%= j render "my/messages/form", chat_room: @chat_room, message: Message.new%>');
+<% end %>
+function scrollLastMessageIntoView() {
+  const messages = document.querySelectorAll('.message');
+  const lastMessage = messages[messages.length - 1];
+  console.log(messages);
+  if (lastMessage !== undefined) {
+    lastMessage.scrollIntoView();
+  }
+};
+scrollLastMessageIntoView();

@@ -9,7 +9,7 @@
   margin-left: 60px;
 }
 
-.messages-area {
+#messages {
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -18,17 +18,22 @@
   overflow: scroll;
 }
 
-.text-message {
+#new_message {
   display: flex;
   justify-content: space-between;
   margin-top: 15px;
+  width: 100%;
   .send-button {
     display: flex;
     text-align: center;
   }
 }
 
-.text-message-area {
+#message-area {
+  width: 100%;
+}
+
+#message_content {
   width: 100%;
 }
 

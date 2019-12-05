@@ -1,9 +1,11 @@
 <%= simple_form_for [:my, chat_room, message ], remote: true do |f| %>
   <%= f.error_notification %>
   <div id="message-area">
-    <div class="send-button container">
     <%= f.input :content, label: false %>
-    <%= f.button :submit, "Envoyer", class: "seven-button" %>
-  <% end %>
-    </div>
   </div>
+  <div class="">
+    <%= f.button :submit, "Envoyer", class: "seven-button" %>
+  </div>
+<% end %>
+
+

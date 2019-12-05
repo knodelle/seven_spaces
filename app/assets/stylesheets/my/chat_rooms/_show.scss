@@ -16,7 +16,7 @@
   height: 600px;
   border: 2px solid $midnight-green;
   overflow: auto;
-  border-radius: 8px;
+  border-radius: 0 0 8px 8px;
 
 }
 
@@ -24,16 +24,17 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  .send-button {
-    display: flex;
-    text-align: center;
-  }
 }
 
 #message-area {
   width: 100%;
   margin-top: 15px;
 }
+
+.send-button {
+    display: flex;
+    text-align: center;
+  }
 
 #message_content {
   width: 100%;
@@ -67,7 +68,7 @@
 }
 
 .active-chat-room {
-  box-shadow: 0 0 15px $pale-green;
+  box-shadow: 0 0 15px yellow;
 }
 
 .username-chat {

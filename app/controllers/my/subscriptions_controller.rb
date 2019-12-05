@@ -1,5 +1,6 @@
 class My::SubscriptionsController < ApplicationController
   before_action :set_subscription, only: [:show, :destroy, :edit, :update]
+
   def index
     @subscriptions = Subscription.where(user_id: current_user.id)
   end
@@ -30,7 +31,7 @@ class My::SubscriptionsController < ApplicationController
 
   def update
     if @subscription.update(subscription_params)
-      redirect_to my_subscription_path(@subscription)
+      redirect_to my_subscriptions_path
     else
       render :edit
     end

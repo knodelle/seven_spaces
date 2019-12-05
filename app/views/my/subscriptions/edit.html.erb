@@ -1,21 +1,22 @@
-<h1>Edit my subs</h1>
-<div class="container">
-  <h3><%= @subscription.chat_room.title %></h3>
-  <%= simple_form_for [@chat_room, :my, @subscription] do |f| %>
-    <%= f.error_notification %>
 
-    <div class="form-inputs">
-      <div>
-        <%= @subscription.chat_room.description %>
-      </div>
-      <%= f.input :description %>
+<div class="container body-subscription">
+  <div class="container subscription-container">
+    <div class="header-edit">
+      <h1>ÉDITER MA DEMANDE</h1>
+      <div class="container">
+        <h4><%= @subscription.chat_room.title %></h4>
+        <%= simple_form_for [@chat_room, :my, @subscription] do |f| %>
+          <%= f.error_notification %>
+
+          <div class="form-inputs">
+              <%= @subscription.chat_room.description %>
+            <p> <%= f.input :description, label: "Mon message" %> </p>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, "Retour", class: "seven-button" %>
+          </div>
+        <% end %>
     </div>
-
-    <div class="form-actions">
-      <%= f.button :submit, "Modifier votre demande" %>
-    </div>
-  <% end %>
-
-  <%= link_to "Retour", :back %>
-
+  </div>
 </div>

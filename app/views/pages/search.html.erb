@@ -1,11 +1,16 @@
+
+<div class="banner">
 <div class='searchpage '>
     <div class="container home-text text-center">
+      <div class="header">
+      <h1>Trouvez votre salon</h1>
+      <p>Insérez un maximum de tags pour de meilleurs résultats</p>
       <br>
       <br>
         <div class="searchbox">
           <div class="col-12 col-md-8" style='padding-left: 0px'>
             <%= simple_form_for :search, url: search_path, method: :get do |f| %>
-              <%= f.input :tag_ids, label: false, collection: Tag.all, input_html: {:style=> 'width:500px;', multiple: true, class: "select2", data: { placeholder: 'Recherchez vos salons par thèmes' }}, include_hidden: false %>
+              <%= f.input :tag_ids, label: false, collection: Tag.all, input_html: {:style=> 'color: black; width:500px;', multiple: true, class: "select2", data: { placeholder: 'Recherchez vos salons par thèmes' }}, include_hidden: false %>
               <form class="form-inline my-2 my-lg-0 justify-content-center">
               <%= f.button :submit, "Chercher un salon", class: 'seven-button' %>
               </form>
@@ -13,7 +18,9 @@
           </div>
         </div>
     </div>
-
+    </div>
+  </div>
+</div>
 
 
 <div class="container">
@@ -34,6 +41,7 @@
         </div>
       </div>
     </div>
-      <% end %>
+  <% end %>
   </div>
 </div>
+

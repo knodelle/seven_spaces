@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 puts 'Starting ....'
 puts 'Cleaning...'
 ChatRoomTag.destroy_all
@@ -50,7 +51,7 @@ chat_room4 = ChatRoom.new(title: "Un peu de gaming", description: "LoL, DotA, Ho
 chat_room4.remote_photo_url = url_chat_room4
 chat_room4.save
 
-chat_room5 = ChatRoom.new(title: "Écologie, zéro déchets, potager", description: "Pour s'échanger des astuces en petit comité. ", user_id: julie.id, photo: "moba.png")
+chat_room5 = ChatRoom.new(title: "Écologie, zéro déchets", description: "Pour s'échanger des astuces en petit comité. ", user_id: julie.id, photo: "moba.png")
 chat_room5.remote_photo_url = url_chat_room5
 chat_room5.save
 
@@ -58,7 +59,7 @@ chat_room6 = ChatRoom.new(title: "Jeux de rôles", description: "Venez discuter 
 chat_room6.remote_photo_url = url_chat_room6
 chat_room6.save
 
-chat_room7 = ChatRoom.new(title: "Groupe de révisions Ruby on Rails", description: "Pour progresser en petit comité.", user_id: lea.id, photo: "moba.png")
+chat_room7 = ChatRoom.new(title: "Ruby on Rails", description: "Pour progresser en petit comité.", user_id: lea.id, photo: "moba.png")
 chat_room7.remote_photo_url = url_chat_room7
 chat_room7.save
 

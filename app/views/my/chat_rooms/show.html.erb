@@ -27,8 +27,10 @@
 
 
 
+
       <div class="my-chat-rooms-index">
         <h3>Salons</h3>
+
       </div>
       <div id="cards-list-chat-rooms">
         <%= render @chat_rooms.where.not(id: @chat_room.id) %>

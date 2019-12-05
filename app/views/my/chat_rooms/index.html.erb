@@ -10,22 +10,36 @@
     </div>
   </div>
 </div>
+
+
+
+
+
 <div class="container">
+
+<!-- début du test -->
+
+
+
+
+<!-- fin du test -->
+
+
   <div class="row">
-    <div class="col-12 col-lg-6 mt-2 left-column">
-      <h3>Salons</h3>
+    <div class="col-12 col-lg-6 mt-2 left-column pr-5">
+      <h3>Mes salons</h3>
       <% if @chat_rooms == []  %>
         <h4>Vous n'avez pas crée de salon... qu'attendez vous ? <i class="far fa-laugh-wink"></i> </h4>
       <% else %>
-        <div class="my-chat-rooms">
+        <div class="my-chat-rooms ">
           <% @chat_rooms.each do |chat_room| %>
-            <div class="card-my-chat-rooms">
+            <div class="card-my-chat-rooms zoom">
               <div class="image-slot">
                 <%= cl_image_tag chat_room.photo, class: "card-my-chat-rooms-image" %>
               </div>
               <div class="card-my-chat-rooms-infos">
                 <h5><%= chat_room.title %></h5>
-                <p><%= chat_room.description.first(40) %></p>
+                <p><%= chat_room.description.first(40) %>...</p>
               </div>
               <div class="links-seven">
                 <%= link_to "Rejoindre le salon", my_chat_room_path(chat_room), class: "fas fa-sign-in-alt link-seven"  %>
@@ -39,21 +53,21 @@
       <% end %>
     </div>
 
-    <div class="col-12 col-lg-6 mt-2 right-column">
-      <h3>Abonnements</h3>
+    <div class="col-12 col-lg-6 mt-2 right-column pl-5">
+      <h3 class="">Mes Abonnements</h3>
       <div>
         <% if @subscriptions.where(status: "Accepted") == []  %>
           <h4>Vous n'avez pas rejoint de chat room... lancez vous ! <i class="fas fa-rocket"></i> </h4>
         <% else %>
           <div class="my-chat-rooms">
             <% @subscriptions.where(status: 'Accepted').each do |subscription| %>
-              <div class="card-my-chat-rooms">
+              <div class="card-my-chat-rooms zoom">
                 <div class="image-slot">
                   <%= cl_image_tag subscription.chat_room.photo, class: "card-my-chat-rooms-image" %>
                 </div>
                 <div class="card-my-chat-rooms-infos">
                   <h5><%= subscription.chat_room.title %></h5>
-                  <p><%= subscription.chat_room.description.first(5) %></p>
+                  <p><%= subscription.chat_room.description.first(5) %>...</p>
                 </div>
                 <div class="links-seven">
                   <%= link_to "Rejoindre le salon", my_chat_room_path(subscription.chat_room), class: "fas fa-sign-in-alt link-seven"  %>

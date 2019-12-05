@@ -24,11 +24,28 @@ lea = User.create(email: 'lea@gmail.com', password: 'azerty', username: "Latte",
 lucie = User.create(email: 'lucie@gmail.com', password: 'azerty', username: "Lulu", avatar: "ninja-icon.png")
 puts 'users done !'
 puts 'creating chat rooms...'
-chat_room1 = ChatRoom.create(title: 'Les JO de Tokyo', description: 'Sports favoris ? Athlète favoris ? Un peu des 2??', user_id: adrien.id, photo: "jo.jpg")
-chat_room2 = ChatRoom.create(title: 'Un salon de chat ?', description: "Qui n'aime pas ces betes la hein ?", user_id: julien.id, photo: "chat-trop-chou.jpg")
-chat_room3 = ChatRoom.create(title: "L'art du monde", description: "Qu'est ce que l'art ? vous avez 4 heures...", user_id: marie.id, photo: "guild_tower.jpg")
-chat_room4 = ChatRoom.create(title: "Un peu de gaming", description: "LoL, DotA, HotS ? MOBA ou Pas", user_id: thibaud.id, photo: "moba.png")
+url_chat_room1 = "app/assets/images/jo.jpg"
+url_chat_room2 = "app/assets/images/chat-trop-chou.jpg"
+url_chat_room3 = "app/assets/images/guild_tower.jpg"
+url_chat_room4 = "app/assets/images/moba.png"
+
+chat_room1 = ChatRoom.new(title: 'Les JO de Tokyo', description: 'Sports favoris ? Athlète favoris ? Un peu des 2??', user_id: adrien.id)
+chat_room1.remote_photo_url = url_chat_room1
+chat_room1.save
+
+chat_room2 = ChatRoom.new(title: 'Un salon de chat ?', description: "Qui n'aime pas ces betes la hein ?", user_id: julien.id)
+chat_room2.remote_photo_url = url_chat_room2
+chat_room2.save
+
+chat_room3 = ChatRoom.new(title: "L'art du monde", description: "Qu'est ce que l'art ? vous avez 4 heures...", user_id: marie.id, photo: "guild_tower.jpg")
+chat_room3.remote_photo_url = url_chat_room3
+chat_room3.save
+
+chat_room4 = ChatRoom.new(title: "Un peu de gaming", description: "LoL, DotA, HotS ? MOBA ou Pas", user_id: thibaud.id, photo: "moba.png")
+chat_room4.remote_photo_url = url_chat_room4
+chat_room4.save
 puts 'chat rooms created !'
+
 
 puts 'subscriptions...'
 

@@ -9,18 +9,39 @@ puts 'Starting ....'
 puts 'Cleaning...'
 ChatRoomTag.destroy_all
 Tag.destroy_all
+Subscription.destroy_all
 ChatRoom.destroy_all
 User.destroy_all
 
 puts 'creating users ...'
-adrien = User.create(email: 'adrien.peres@gmail.com', password: 'azerty', username: "Bgdu93")
-julien = User.create(email: 'julien@gmail.com', password: 'azerty', username: "Juju_tuning33")
+adrien = User.create(email: 'adrien@gmail.com', password: 'azerty', username: "Bgdu93", avatar: "batman-icon.png")
+julien = User.create(email: 'julien@gmail.com', password: 'azerty', username: "Juju_tuning33", avatar: "ninja-icon.png")
+marie = User.create(email: 'marie@gmail.com', password: 'azerty', username: "Mimie", avatar: "iron-man.jpeg")
+julie = User.create(email: 'julie@gmail.com', password: 'azerty', username: "Juttuti", avatar: "avatar-icon.png")
+thibaud = User.create(email: 'thibaud@gmail.com', password: 'azerty', username: "Titibs", avatar: "anonymous-icon.png")
+florent = User.create(email: 'florent@gmail.com', password: 'azerty', username: "Florizard", avatar: "bobbafet.jpeg")
+lea = User.create(email: 'lea@gmail.com', password: 'azerty', username: "Latte", avatar: "darkvador.jpeg")
+lucie = User.create(email: 'lucie@gmail.com', password: 'azerty', username: "Lulu", avatar: "ninja-icon.png")
 puts 'users done !'
 puts 'creating chat rooms...'
-chat_room1 = ChatRoom.create(title: 'Chat room 1', description: 'lorem ipsum', user_id: adrien.id)
-chat_room2 = ChatRoom.create(title: 'Chat room de Julien', description: 'lorem pas ipsum', user_id: julien.id)
-
+chat_room1 = ChatRoom.create(title: 'Les JO de Tokyo', description: 'Sports favoris ? Athlète favoris ? Un peu des 2??', user_id: adrien.id, photo: "jo.jpg")
+chat_room2 = ChatRoom.create(title: 'Un salon de chat ?', description: "Qui n'aime pas ces betes la hein ?", user_id: julien.id, photo: "chat-trop-chou.jpg")
+chat_room3 = ChatRoom.create(title: "L'art du monde", description: "Qu'est ce que l'art ? vous avez 4 heures...", user_id: marie.id, photo: "guild_tower.jpg")
+chat_room4 = ChatRoom.create(title: "Un peu de gaming", description: "LoL, DotA, HotS ? MOBA ou Pas", user_id: thibaud.id, photo: "moba.png")
 puts 'chat rooms created !'
+
+puts 'subscriptions...'
+
+subscription1 = Subscription.create(description: "Bonjour", status: 'Accepted', chat_room: chat_room1, user: lucie)
+subscription2 = Subscription.create(description: "Bonjour", status: "Accepted", chat_room: chat_room4, user: adrien)
+subscription3 = Subscription.create(description: "Bonjour", status: 'Accepted', chat_room: chat_room4, user: lucie)
+subscription4 = Subscription.create(description: "Bonjour", status: "Accepted", chat_room: chat_room4, user: julien)
+subscription5 = Subscription.create(description: "Bonjour", status: 'Accepted', chat_room: chat_room2, user: lucie)
+subscription6 = Subscription.create(description: "Bonjour", status: "Accepted", chat_room: chat_room2, user: julie)
+subscription7 = Subscription.create(description: "Bonjour", status: 'Accepted', chat_room: chat_room3, user: lucie)
+subscription8 = Subscription.create(description: "Bonjour", status: "Accepted", chat_room: chat_room2, user: lea)
+subscription9 = Subscription.create(description: "Bonjour", status: "Accepted", chat_room: chat_room3, user: adrien)
+subscription10 = Subscription.create(description: "Bonjour", status: "Accepted", chat_room: chat_room2, user: adrien)
 
 puts 'completed !'
 
@@ -46,7 +67,7 @@ startups = Tag.create!(name: "Startup")
 accessibility = Tag.create!(name: "Accessibilité")
 informatique = Tag.create!(name: "Informatique")
 science = Tag.create!(name: "Science")
-technology = Tag.create!(name: "Technology")
+technologie = Tag.create!(name: "Technology")
 nature = Tag.create!(name: "Nature")
 addictions = Tag.create!(name: "Addictions")
 handicap = Tag.create!(name: "Handicap")
@@ -75,5 +96,10 @@ societe = Tag.create!(name: "Société")
 feminisme = Tag.create!(name: "Feminisme")
 
 chat_room_tag1 = ChatRoomTag.create!(chat_room: chat_room1, tag: sport)
-chat_room_tag2 = ChatRoomTag.create!(chat_room: chat_room2, tag: sante)
+chat_room_tag2 = ChatRoomTag.create!(chat_room: chat_room2, tag: animaux)
 chat_room_tag3 = ChatRoomTag.create!(chat_room: chat_room1, tag: histoire)
+chat_room_tag4 = ChatRoomTag.create!(chat_room: chat_room4, tag: jeux)
+chat_room_tag5 = ChatRoomTag.create!(chat_room: chat_room2, tag: religion)
+chat_room_tag6 = ChatRoomTag.create!(chat_room: chat_room3, tag: culture)
+chat_room_tag7 = ChatRoomTag.create!(chat_room: chat_room4, tag: culture)
+chat_room_tag8 = ChatRoomTag.create!(chat_room: chat_room4, tag: technologie)

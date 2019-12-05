@@ -10,26 +10,30 @@
       </div> -->
 
       <div class="my-chat-rooms-index">
-        <h3>Salon actif</h3>
+        <h1>
+          <span class="underline--magical">Salon actif</span>
+        </h1>
       </div>
       <div class="card-my-chat-rooms active-chat-room">
         <div class="image-slot">
-          <div class="image-slot">
-            <%= cl_image_tag @chat_room.photo, class: "card-my-chat-rooms-image" %>
-          </div>
+          <%= cl_image_tag @chat_room.photo, class: "card-my-chat-rooms-image" %>
         </div>
         <div class="card-my-chat-rooms-infos">
           <h5><%= @chat_room.title %></h5>
           <p><%= @chat_room.description.first(20) %></p>
         </div>
-        <i class="fas fa-star active-chat-room-star"></i>
+        <div class="links-seven">
+          <i class="fas fa-star active-chat-room-star"></i>
+        </div>
       </div>
 
 
 
 
       <div class="my-chat-rooms-index">
-        <h3>Salons</h3>
+        <h1>
+          <span class="underline--magical">Salons</span>
+        </h1>
 
       </div>
       <div id="cards-list-chat-rooms">

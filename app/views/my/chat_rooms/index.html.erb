@@ -96,7 +96,7 @@
           <% pluriel = @subscriptions.where(status: 'pending').size > 1 ? "s" : ""  %>
           <p>Vous avez <strong><%= @subscriptions.where(status: 'pending').size %></strong> abonnement<%= pluriel %> en attente.</p>
           <% if @subscriptions.where(status: 'pending').size > 0 %>
-            <%= link_to "Voirs", my_subscriptions_path, class: "seven-button"  %>
+            <%= link_to "Voir", my_subscriptions_path, class: "seven-button"  %>
           <% end %>
         </div>
       </div>

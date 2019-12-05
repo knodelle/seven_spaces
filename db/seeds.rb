@@ -171,3 +171,4 @@ chat_room_tag23 = ChatRoomTag.create!(chat_room: chat_room8, tag: egalite)
 chat_room_tag24 = ChatRoomTag.create!(chat_room: chat_room8, tag: lgbtqia)
 chat_room_tag25 = ChatRoomTag.create!(chat_room: chat_room5, tag: nature)
 chat_room_tag26 = ChatRoomTag.create!(chat_room: chat_room8, tag: politique)
+

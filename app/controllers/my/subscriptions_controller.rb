@@ -1,5 +1,6 @@
 class My::SubscriptionsController < ApplicationController
   before_action :set_subscription, only: [:show, :destroy, :edit, :update]
+
   def index
     @subscriptions = Subscription.where(user_id: current_user.id)
   end

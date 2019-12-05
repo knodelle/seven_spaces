@@ -1,19 +1,29 @@
-<h1>Index my subs</h1>
-
-
 
 
 <div class="container body-subscription">
   <div class="container subscription-container">
     <div class="header-edit">
+      <h1>MA DEMANDE D'ACCÈS</h1>
       <% @subscriptions.each do |subscription| %>
-      <div class=''></div>
-      <img src=" <%= subscription.user.avatar %>" alt="">
-        <%= subscription.chat_room.title %>
-        <%= subscription.status %>
-        <%= subscription.user.username %>
-        <%= link_to "Voir la demande", my_subscription_path(subscription), class:"btn seven-button float-right"  %>
-      <% end %>
     </div>
+
+    <div class="container">
+       <h2><%= subscription.chat_room.title %> </h2>
+         <p> <%= subscription.chat_room.description %> </p>
+      <br>
+        <br>
+        <h2>Message : </h2>
+       <%= subscription.description %>
+       <br>
+       <br>
+     </div>
+
+      <br>
+      <div class="container">
+      <%= link_to "Modifier", edit_my_subscription_path(subscription), class: "seven-button" %>
+      <%= link_to "Supprimer", my_subscription_path(subscription), method: :delete , class: "seven-button" %>
+        <% end %>
+      </div>
+
   </div>
 </div>

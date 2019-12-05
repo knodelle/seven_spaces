@@ -1,0 +1,9 @@
+<div class="d-flex justify-content-between align-items-center px-3 chat-rooms">
+  <%= cl_image_tag chat_room.photo, class: "card-my-chat-rooms-image" %>
+  <div>
+    <h5><%= chat_room.title %></h5>
+    <p><%= chat_room.description.first(10) %></p>
+  </div>
+  <%= link_to "", my_chat_room_path(chat_room), class: "fas fa-door-open link-card active"  %>
+</div>
+

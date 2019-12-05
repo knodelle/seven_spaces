@@ -12,7 +12,7 @@ class SubscriptionsController < ApplicationController
 
   def update
     if @subscription.update(subscription_params)
-      redirect_to chat_room_subscriptions_path(@subscription)
+      redirect_to chat_room_subscriptions_path(@subscription.chat_room)
     else
       render :show
     end

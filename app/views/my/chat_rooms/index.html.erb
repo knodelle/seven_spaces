@@ -10,7 +10,21 @@
     </div>
   </div>
 </div>
+
+
+
+
+
 <div class="container">
+
+<!-- début du test -->
+
+
+
+
+<!-- fin du test -->
+
+
   <div class="row">
     <div class="col-12 col-lg-6 mt-2 left-column">
       <h3>Salons</h3>
@@ -25,7 +39,7 @@
               </div>
               <div class="card-my-chat-rooms-infos">
                 <h5><%= chat_room.title %></h5>
-                <p><%= chat_room.description.first(40) %></p>
+                <p><%= chat_room.description.first(40) %>...</p>
               </div>
               <div class="links-seven">
                 <%= link_to "Rejoindre le salon", my_chat_room_path(chat_room), class: "fas fa-sign-in-alt link-seven"  %>
@@ -53,7 +67,7 @@
                 </div>
                 <div class="card-my-chat-rooms-infos">
                   <h5><%= subscription.chat_room.title %></h5>
-                  <p><%= subscription.chat_room.description.first(5) %></p>
+                  <p><%= subscription.chat_room.description.first(5) %>...</p>
                 </div>
                 <div class="links-seven">
                   <%= link_to "Rejoindre le salon", my_chat_room_path(subscription.chat_room), class: "fas fa-sign-in-alt link-seven"  %>

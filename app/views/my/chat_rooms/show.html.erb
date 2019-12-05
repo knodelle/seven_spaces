@@ -10,66 +10,31 @@
       </div> -->
 
       <div class="my-chat-rooms-index">
-          <h3>Salon actif</h3>
-        </div>
-
-            <div class="card-my-chat-rooms activable" style="background: $light-green;">
-              <div class="image-slot">
-                <div class="image-slot">
-                  <%= cl_image_tag @chat_room.photo, class: "card-my-chat-rooms-image" %>
-                </div>
-              </div>
-              <div class="card-my-chat-rooms-infos">
-                <h5><%= @chat_room.title %></h5>
-                <p><%= @chat_room.description.first(10) %></p>
-              </div>
-              <div class="links-seven-show">
-                <%= link_to "Rejoindre le salon", my_chat_room_path(@chat_room), class: "fas fa-sign-in-alt link-seven active"  %>
-                <%= link_to " Demandes", chat_room_subscriptions_path(@chat_room), class: "far fa-envelope link-seven"  %>
-              </div>
-            </div>
-
-
-      <div>
-        <div class="my-chat-rooms-index">
-          <h3>Salons</h3>
-        </div>
-        <% @chat_rooms.each do |chat_room| %>
-          <% if chat_room != @chat_room %>
-
-            <div class="card-my-chat-rooms activable">
-              <div class="image-slot">
-                <div class="image-slot">
-                  <%= cl_image_tag chat_room.photo, class: "card-my-chat-rooms-image" %>
-                </div>
-              </div>
-              <div class="card-my-chat-rooms-infos">
-                <h5><%= chat_room.title %></h5>
-                <p><%= chat_room.description.first(10) %></p>
-              </div>
-              <div class="links-seven-show">
-                <%= link_to "Rejoindre le salon", my_chat_room_path(chat_room), class: "fas fa-sign-in-alt link-seven active"  %>
-                <%= link_to " Demandes", chat_room_subscriptions_path(chat_room), class: "far fa-envelope link-seven"  %>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-        <% @my_subscriptions.each do |my_subscription| %>
-          <div class="card-my-chat-rooms activable">
-            <div class="image-slot">
-              <%= cl_image_tag my_subscription.chat_room.photo, class: "card-my-chat-rooms-image" %>
-            </div>
-            <div class="card-my-chat-rooms-infos">
-              <h5><%= my_subscription.chat_room.title %></h5>
-              <p><%= my_subscription.chat_room.description.first(10) %></p>
-            </div>
-            <div class="links-seven-show">
-              <%= link_to "Rejoindre le salon", my_chat_room_path(my_subscription.chat_room), class: "fas fa-sign-in-alt link-seven active"  %>
-              <%= link_to "Quitter le salon" , my_subscription_path(my_subscription), method: :delete, class: "fas fa-door-open link-seven"%>
-            </div>
-          </div>
-        <% end %>
+        <h3>Salon actif</h3>
       </div>
+      <div class="card-my-chat-rooms activated">
+        <div class="image-slot">
+          <div class="image-slot">
+            <%= cl_image_tag @chat_room.photo, class: "card-my-chat-rooms-image" %>
+          </div>
+        </div>
+        <div class="card-my-chat-rooms-infos">
+          <h5><%= @chat_room.title %></h5>
+          <p><%= @chat_room.description.first(10) %></p>
+        </div>
+        <i class="fas fa-star active-chat-room-star"></i>
+      </div>
+
+
+
+      <div class="my-chat-rooms-index">
+        <h3>Salons</h3>
+      </div>
+      <div id="cards-list-chat-rooms">
+        <%= render @chat_rooms.where.not(id: @chat_room.id) %>
+        <%= render @my_subscriptions.where.not(chat_room_id: @chat_room.id) %>
+      </div>
+
     </div>
 
     <div class="col-12 col-xl-6">
@@ -100,8 +65,7 @@
 
     <div class="col-12 col-xl-2">
       <div class="card-chat-room-users">
-        <h5>Liste des utilisateurs</h5>
-          <p>Maître du salon: </p>
+          <h5>Créateur: </h5>
           <div class="d-flex">
             <div>
               <%= image_tag @chat_master.avatar, class: "avatar" %>
@@ -110,7 +74,7 @@
               <p>- <%= @chat_master.username %></p>
             </div>
           </div>
-          <p>Utilisateurs:</p>
+          <p>Abonné(es):</p>
           <div>
             <% @users.each do |user| %>
             <div class="d-flex">

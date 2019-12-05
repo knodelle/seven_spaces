@@ -2,35 +2,57 @@
   <div class="row d-flex justify-content-xl-between position-relative">
 
     <div class="col-12 col-xl-4">
-      <div class="informations">
-        <%= image_tag current_user.avatar, class: "avatar-large" %>
+      <!-- <div class="informations">
+        <%#= image_tag current_user.avatar, class: "avatar-large" %>
         <div class="informations-button">
-          <%= link_to "Tableau de bord", my_chat_rooms_path, class: "seven-button" %>
+          <%#= link_to "Tableau de bord", my_chat_rooms_path, class: "seven-button" %>
         </div>
-      </div>
+      </div> -->
+
+      <div class="my-chat-rooms-index">
+          <h3>Salon actif</h3>
+        </div>
+
+            <div class="card-my-chat-rooms activable" style="background: $light-green;">
+              <div class="image-slot">
+                <div class="image-slot">
+                  <%= cl_image_tag @chat_room.photo, class: "card-my-chat-rooms-image" %>
+                </div>
+              </div>
+              <div class="card-my-chat-rooms-infos">
+                <h5><%= @chat_room.title %></h5>
+                <p><%= @chat_room.description.first(10) %></p>
+              </div>
+              <div class="links-seven-show">
+                <%= link_to "Rejoindre le salon", my_chat_room_path(@chat_room), class: "fas fa-sign-in-alt link-seven active"  %>
+                <%= link_to " Demandes", chat_room_subscriptions_path(@chat_room), class: "far fa-envelope link-seven"  %>
+              </div>
+            </div>
+
+
       <div>
         <div class="my-chat-rooms-index">
           <h3>Salons</h3>
         </div>
         <% @chat_rooms.each do |chat_room| %>
-        <% if chat_room == @chat_room %>
+          <% if chat_room != @chat_room %>
 
-        <% end %>
-          <div class="card-my-chat-rooms activable">
-            <div class="image-slot">
+            <div class="card-my-chat-rooms activable">
               <div class="image-slot">
-                <%= cl_image_tag chat_room.photo, class: "card-my-chat-rooms-image" %>
+                <div class="image-slot">
+                  <%= cl_image_tag chat_room.photo, class: "card-my-chat-rooms-image" %>
+                </div>
+              </div>
+              <div class="card-my-chat-rooms-infos">
+                <h5><%= chat_room.title %></h5>
+                <p><%= chat_room.description.first(10) %></p>
+              </div>
+              <div class="links-seven-show">
+                <%= link_to "Rejoindre le salon", my_chat_room_path(chat_room), class: "fas fa-sign-in-alt link-seven active"  %>
+                <%= link_to " Demandes", chat_room_subscriptions_path(chat_room), class: "far fa-envelope link-seven"  %>
               </div>
             </div>
-            <div class="card-my-chat-rooms-infos">
-              <h5><%= chat_room.title %></h5>
-              <p><%= chat_room.description.first(10) %></p>
-            </div>
-            <div class="links-seven-show">
-              <%= link_to "Rejoindre le salon", my_chat_room_path(chat_room), class: "fas fa-sign-in-alt link-seven active"  %>
-              <%= link_to " Demandes", chat_room_subscriptions_path(chat_room), class: "far fa-envelope link-seven"  %>
-            </div>
-          </div>
+          <% end %>
         <% end %>
         <% @my_subscriptions.each do |my_subscription| %>
           <div class="card-my-chat-rooms activable">

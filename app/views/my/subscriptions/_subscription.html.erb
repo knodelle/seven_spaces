@@ -2,7 +2,7 @@
   <%= cl_image_tag subscription.chat_room.photo, class: "card-my-chat-rooms-image" %>
   <div>
     <h5><%= subscription.chat_room.title %></h5>
-    <p><%= subscription.chat_room.description.first(10) %></p>
+    <p><%= subscription.chat_room.description.first(20) %></p>
   </div>
   <%= link_to "", my_chat_room_path(subscription.chat_room), class: "fas fa-door-open link-card"%>
 </div>

@@ -106,12 +106,12 @@
 .card-title-chat-room{
   margin-top: 15px;
   height: 75px;
-  border-radius: 8px;
+  border-radius: 8px 8px 0 0;
   display: flex;
   border-top: 2px solid $midnight-green;
   border-left: 2px solid $midnight-green;
   border-right: 2px solid $midnight-green;
-  background: white;
+  background: #fff;
   h3 {
     color: $midnight-green;
   }

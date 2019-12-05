@@ -57,7 +57,7 @@
         <% @my_subscriptions.each do |my_subscription| %>
           <div class="card-my-chat-rooms activable">
             <div class="image-slot">
-              <%= cl_image_tag "my_subscription.chat_room.photo", class: "card-my-chat-rooms-image" %>
+              <%= cl_image_tag my_subscription.chat_room.photo, class: "card-my-chat-rooms-image" %>
             </div>
             <div class="card-my-chat-rooms-infos">
               <h5><%= my_subscription.chat_room.title %></h5>
@@ -79,7 +79,11 @@
           <p><%= @chat_room.description %></p>
         </div>
         <div class="chat-room-tags">
-          <p> y aura des tags ici .... oui oui</p>
+          <ul class='room-tags' >
+            <% @chat_room.tags.each do |tag| %>
+              <li class="room-tag"><%= tag.name %></li>
+            <% end %>
+          </ul>
         </div>
       </div>
       <div class="chat-room">

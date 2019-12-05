@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2019_11_29_140343) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.string "photo", default: "https://www.trzcacak.rs/myfile/detail/227-2273042_live-chat-live-chat-icon-png.png"
+    t.string "photo"
     t.index ["user_id"], name: "index_chat_rooms_on_user_id"
   end
 
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2019_11_29_140343) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
-    t.string "avatar", default: "https://img.icons8.com/color/1600/avatar.png"
+    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -28,6 +28,11 @@ url_chat_room1 = "app/assets/images/jo.jpg"
 url_chat_room2 = "app/assets/images/chat-trop-chou.jpg"
 url_chat_room3 = "app/assets/images/guild_tower.jpg"
 url_chat_room4 = "app/assets/images/moba.png"
+url_chat_room5 = "app/assets/images/ecologie.jpg"
+url_chat_room6 = "app/assets/images/jeuxrole.png"
+url_chat_room7 = "app/assets/images/ruby-on-rails.png"
+url_chat_room8 = "app/assets/images/feminisme.png"
+
 
 chat_room1 = ChatRoom.new(title: 'Les JO de Tokyo', description: 'Sports favoris ? Athlète favoris ? Un peu des 2??', user_id: adrien.id)
 chat_room1.remote_photo_url = url_chat_room1
@@ -44,21 +49,48 @@ chat_room3.save
 chat_room4 = ChatRoom.new(title: "Un peu de gaming", description: "LoL, DotA, HotS ? MOBA ou Pas", user_id: thibaud.id, photo: "moba.png")
 chat_room4.remote_photo_url = url_chat_room4
 chat_room4.save
+
+chat_room5 = ChatRoom.new(title: "Écologie, zéro déchets, potager", description: "Pour s'échanger des astuces en petit comité. ", user_id: julie.id, photo: "moba.png")
+chat_room5.remote_photo_url = url_chat_room5
+chat_room5.save
+
+chat_room6 = ChatRoom.new(title: "Jeux de rôles", description: "Venez discuter de personnages, donjons et dragons.", user_id: florent.id, photo: "moba.png")
+chat_room6.remote_photo_url = url_chat_room6
+chat_room6.save
+
+chat_room7 = ChatRoom.new(title: "Groupe de révisions Ruby on Rails", description: "Pour progresser en petit comité.", user_id: lea.id, photo: "moba.png")
+chat_room7.remote_photo_url = url_chat_room7
+chat_room7.save
+
+chat_room8 = ChatRoom.new(title: "Féminisme intersectionnel", description: "Venez discuter d'inclusion. Groupe LGBT friendly.", user_id: lucie.id, photo: "moba.png")
+chat_room8.remote_photo_url = url_chat_room8
+chat_room8.save
+
 puts 'chat rooms created !'
 
 
 puts 'subscriptions...'
 
 subscription1 = Subscription.create(description: "Bonjour", status: 'Accepted', chat_room: chat_room1, user: lucie)
+subscription20 = Subscription.create(description: "Bonjour", status: "Accepted", chat_room: chat_room2, user: adrien)
+subscription5 = Subscription.create(description: "Bonjour", status: 'Accepted', chat_room: chat_room2, user: lucie)
+subscription6 = Subscription.create(description: "Bonjour", status: "Accepted", chat_room: chat_room2, user: julie)
+subscription8 = Subscription.create(description: "Bonjour", status: "Accepted", chat_room: chat_room2, user: lea)
+subscription7 = Subscription.create(description: "Bonjour", status: 'Accepted', chat_room: chat_room3, user: lucie)
+subscription19 = Subscription.create(description: "Bonjour", status: "Accepted", chat_room: chat_room3, user: adrien)
+subscription9 = Subscription.create(description: "Bonjour", status: "Accepted", chat_room: chat_room3, user: lea)
 subscription2 = Subscription.create(description: "Bonjour", status: "Accepted", chat_room: chat_room4, user: adrien)
 subscription3 = Subscription.create(description: "Bonjour", status: 'Accepted', chat_room: chat_room4, user: lucie)
 subscription4 = Subscription.create(description: "Bonjour", status: "Accepted", chat_room: chat_room4, user: julien)
-subscription5 = Subscription.create(description: "Bonjour", status: 'Accepted', chat_room: chat_room2, user: lucie)
-subscription6 = Subscription.create(description: "Bonjour", status: "Accepted", chat_room: chat_room2, user: julie)
-subscription7 = Subscription.create(description: "Bonjour", status: 'Accepted', chat_room: chat_room3, user: lucie)
-subscription8 = Subscription.create(description: "Bonjour", status: "Accepted", chat_room: chat_room2, user: lea)
-subscription9 = Subscription.create(description: "Bonjour", status: "Accepted", chat_room: chat_room3, user: adrien)
-subscription10 = Subscription.create(description: "Bonjour", status: "Accepted", chat_room: chat_room2, user: adrien)
+subscription11 = Subscription.create(description: "Bonjour", status: "Accepted", chat_room: chat_room5, user: lea)
+subscription13 = Subscription.create(description: "Bonjour", status: "Accepted", chat_room: chat_room5, user: marie)
+subscription18 = Subscription.create(description: "Bonjour", status: "Accepted", chat_room: chat_room5, user: lea)
+subscription14 = Subscription.create(description: "Bonjour", status: "Accepted", chat_room: chat_room5, user: lucie)
+subscription10 = Subscription.create(description: "Bonjour", status: "Accepted", chat_room: chat_room6, user: julien)
+subscription12 = Subscription.create(description: "Bonjour", status: 'Accepted', chat_room: chat_room6, user: lucie)
+subscription15 = Subscription.create(description: "Bonjour", status: "Accepted", chat_room: chat_room7, user: adrien)
+subscription16 = Subscription.create(description: "Bonjour", status: "Accepted", chat_room: chat_room8, user: lea)
+subscription17 = Subscription.create(description: "Bonjour", status: 'Accepted', chat_room: chat_room8, user: marie)
 
 puts 'completed !'
 
@@ -113,10 +145,28 @@ societe = Tag.create!(name: "Société")
 feminisme = Tag.create!(name: "Feminisme")
 
 chat_room_tag1 = ChatRoomTag.create!(chat_room: chat_room1, tag: sport)
-chat_room_tag2 = ChatRoomTag.create!(chat_room: chat_room2, tag: animaux)
 chat_room_tag3 = ChatRoomTag.create!(chat_room: chat_room1, tag: histoire)
-chat_room_tag4 = ChatRoomTag.create!(chat_room: chat_room4, tag: jeux)
+chat_room_tag2 = ChatRoomTag.create!(chat_room: chat_room2, tag: animaux)
 chat_room_tag5 = ChatRoomTag.create!(chat_room: chat_room2, tag: religion)
 chat_room_tag6 = ChatRoomTag.create!(chat_room: chat_room3, tag: art)
+chat_room_tag4 = ChatRoomTag.create!(chat_room: chat_room3, tag: culture)
 chat_room_tag7 = ChatRoomTag.create!(chat_room: chat_room4, tag: culture)
 chat_room_tag8 = ChatRoomTag.create!(chat_room: chat_room4, tag: technologie)
+chat_room_tag9 = ChatRoomTag.create!(chat_room: chat_room4, tag: jeux)
+chat_room_tag10 = ChatRoomTag.create!(chat_room: chat_room5, tag: environment)
+chat_room_tag11 = ChatRoomTag.create!(chat_room: chat_room5, tag: style_de_vie)
+chat_room_tag12 = ChatRoomTag.create!(chat_room: chat_room5, tag: societe)
+chat_room_tag13 = ChatRoomTag.create!(chat_room: chat_room6, tag: jeux)
+chat_room_tag14 = ChatRoomTag.create!(chat_room: chat_room6, tag: litterature)
+chat_room_tag18 = ChatRoomTag.create!(chat_room: chat_room6, tag: histoire)
+chat_room_tag15 = ChatRoomTag.create!(chat_room: chat_room7, tag: technologie)
+chat_room_tag16 = ChatRoomTag.create!(chat_room: chat_room7, tag: productivite)
+chat_room_tag17 = ChatRoomTag.create!(chat_room: chat_room7, tag: freelance)
+chat_room_tag19 = ChatRoomTag.create!(chat_room: chat_room7, tag: informatique)
+chat_room_tag20 = ChatRoomTag.create!(chat_room: chat_room8, tag: feminisme)
+chat_room_tag21 = ChatRoomTag.create!(chat_room: chat_room8, tag: racisme)
+chat_room_tag22 = ChatRoomTag.create!(chat_room: chat_room8, tag: societe)
+chat_room_tag23 = ChatRoomTag.create!(chat_room: chat_room8, tag: egalite)
+chat_room_tag24 = ChatRoomTag.create!(chat_room: chat_room8, tag: lgbtqia)
+chat_room_tag25 = ChatRoomTag.create!(chat_room: chat_room5, tag: nature)
+chat_room_tag26 = ChatRoomTag.create!(chat_room: chat_room8, tag: politique)

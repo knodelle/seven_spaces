@@ -3,9 +3,17 @@
 
 
 
-<% @subscriptions.each do |subscription| %>
-  <%= subscription.chat_room.title %>
-  <%= subscription.status %>
-  <%= link_to "Détails", my_subscription_path(subscription)  %>
-<% end %>
-
+<div class="container body-subscription">
+  <div class="container subscription-container">
+    <div class="header-edit">
+      <% @subscriptions.each do |subscription| %>
+      <div class=''></div>
+      <img src=" <%= subscription.user.avatar %>" alt="">
+        <%= subscription.chat_room.title %>
+        <%= subscription.status %>
+        <%= subscription.user.username %>
+        <%= link_to "Voir la demande", my_subscription_path(subscription), class:"btn seven-button float-right"  %>
+      <% end %>
+    </div>
+  </div>
+</div>

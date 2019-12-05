@@ -1,29 +1,41 @@
-
-
-<div class="container body-subscription">
-  <div class="container subscription-container">
-    <div class="header-edit">
-      <h1>MA DEMANDE D'ACCÈS</h1>
-      <% @subscriptions.each do |subscription| %>
+<div class="banner">
+  <div class="banner-header d-flex">
+    <div class="header">
+      <h1>Mes demandes d'accès aux salons</h1>
     </div>
-
-    <div class="container">
-       <h2><%= subscription.chat_room.title %> </h2>
-         <p> <%= subscription.chat_room.description %> </p>
-      <br>
-        <br>
-        <h2>Message : </h2>
-       <%= subscription.description %>
-       <br>
-       <br>
-     </div>
-
-      <br>
-      <div class="container">
-      <%= link_to "Modifier", edit_my_subscription_path(subscription), class: "seven-button" %>
-      <%= link_to "Supprimer", my_subscription_path(subscription), method: :delete , class: "seven-button" %>
-        <% end %>
-      </div>
-
+    <br>
+    <div class="buttons-index">
+    <br>
+      <%= link_to "Retour au tableau de bord", my_chat_rooms_path, class: "seven-button" %>
+    </div>
   </div>
 </div>
+
+<div class="container body-subscription">
+  <div class="container">
+    <div class="header-edit">
+    </div>
+    <% @subscriptions.each do |subscription| %>
+
+      <div class="subscription-container">
+        <div>
+           <h2><%= subscription.chat_room.title %> </h2>
+           <h4> de <%= subscription.chat_room.user.username %> </h4>
+             <p> <%= subscription.chat_room.description %> </p>
+
+              <br>
+            <h2>Mon message : </h2>
+             <%= subscription.description %>
+             <br>
+             <br>
+        </div>
+        <div>
+          <%= link_to "Modifier", edit_my_subscription_path(subscription), class: "seven-button" %>
+          <%= link_to "Supprimer", my_subscription_path(subscription), method: :delete , class: "seven-button" %>
+        </div>
+      </div>
+
+    <% end %>
+  </div>
+</div>
+

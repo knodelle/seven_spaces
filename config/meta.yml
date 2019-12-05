@@ -1,0 +1,5 @@
+meta_product_name: "SevenS"
+meta_title: "Seven Spaces - Chat rooms"
+meta_description: "A safe place to chat about what you desire freely!"
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards

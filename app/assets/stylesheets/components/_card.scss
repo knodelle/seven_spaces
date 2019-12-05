@@ -87,6 +87,7 @@
   border-radius: 8px;
   width: 95%;
   margin: 15px;
+  padding: 10px;
   background-opacity: .9;
   .links-seven-show {
     text-align: left;
@@ -118,8 +119,9 @@
 }
 
 .card-my-chat-rooms-image {
-  height: 100px;
-  width: auto;
+  height: calc(100% - 8px);
+  width: 100px;
+  object-fit: cover;
 }
 
 // list-inline justify-content-center'

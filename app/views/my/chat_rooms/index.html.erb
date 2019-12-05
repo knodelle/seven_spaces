@@ -27,7 +27,9 @@
 
   <div class="row">
     <div class="col-12 col-lg-6 mt-2 left-column pr-5">
-      <h3>Mes salons</h3>
+      <%= image_tag "undraw1.svg", class: "img-title my-4" %>
+<!--       <h3>Mes salons</h3> -->
+      <h1><span class="underline--magical">Mes salons</span></h1>
       <% if @chat_rooms == []  %>
         <h4>Vous n'avez pas crée de salon... qu'attendez vous ? <i class="far fa-laugh-wink"></i> </h4>
       <% else %>
@@ -42,10 +44,18 @@
                 <p><%= chat_room.description.first(40) %>...</p>
               </div>
               <div class="links-seven">
-                <%= link_to "Rejoindre le salon", my_chat_room_path(chat_room), class: "fas fa-sign-in-alt link-seven"  %>
-                <%= link_to "Editer le salon" , edit_my_chat_room_path(chat_room), class: "fas fa-edit link-seven" %>
-                <%= link_to " Demandes", chat_room_subscriptions_path(chat_room), class: "far fa-envelope link-seven"  %>
-                <%= link_to " Supprimer", my_chat_room_path(chat_room), method: :delete, class: "fa fa-trash link-seven"  %>
+                <%= link_to my_chat_room_path(chat_room), class: "link-seven" do %>
+                  <i class="fas fa-sign-in-alt link-seven" ></i> Discuter
+                <% end %>
+                <%= link_to edit_my_chat_room_path(chat_room), class: "link-seven" do %>
+                  <i class="fas fa-edit link-seven"></i> Modifier
+                  <% end %>
+                <%= link_to chat_room_subscriptions_path(chat_room), class: "link-seven" do %>
+                  <i class="far fa-envelope link-seven" ></i> Gérer
+                  <% end %>
+             <%= link_to my_chat_room_path(chat_room), method: :delete, class: "link-seven" do %>
+                  <i class="fa fa-trash link-seven" ></i> Supprimer
+                  <% end %>
               </div>
             </div>
           <% end %>
@@ -54,7 +64,8 @@
     </div>
 
     <div class="col-12 col-lg-6 mt-2 right-column pl-5">
-      <h3 class="">Mes Abonnements</h3>
+      <%= image_tag "undraw2.svg", class: "img-title my-4" %>
+      <h1><span class="underline--magical">Mes Abonnements</span></h1>
       <div>
         <% if @subscriptions.where(status: "Accepted") == []  %>
           <h4>Vous n'avez pas rejoint de chat room... lancez vous ! <i class="fas fa-rocket"></i> </h4>
@@ -67,11 +78,15 @@
                 </div>
                 <div class="card-my-chat-rooms-infos">
                   <h5><%= subscription.chat_room.title %></h5>
-                  <p><%= subscription.chat_room.description.first(5) %>...</p>
+                  <p><%= subscription.chat_room.description.first(30) %>...</p>
                 </div>
                 <div class="links-seven">
-                  <%= link_to "Rejoindre le salon", my_chat_room_path(subscription.chat_room), class: "fas fa-sign-in-alt link-seven"  %>
-                  <%= link_to "Quitter le salon" , my_subscription_path(subscription), method: :delete, class: "fas fa-door-open link-seven"%>
+                <%= link_to my_chat_room_path(subscription.chat_room), class: "link-seven" do %>
+                  <i class="fas fa-sign-in-alt link-seven" ></i> Discuter
+                <% end %>
+                <%= link_to my_subscription_path(subscription), method: :delete, class: "link-seven" do %>
+                  <i class="fas fa-sign-in-alt link-seven" ></i> Se désabonner
+                <% end %>
                 </div>
               </div>
             <% end %>

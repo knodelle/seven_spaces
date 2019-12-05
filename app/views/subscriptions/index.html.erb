@@ -5,14 +5,14 @@
       <p>Découvrez toutes les demandes pour rejoindre votre chatroom</p>
     </div>
     <div class="buttons-index">
-      <%= link_to "Retour à votre Tableau", my_chat_rooms_path, class: "seven-button" %>
+      <%= link_to "Retour à votre tableau", my_chat_rooms_path, class: "seven-button" %>
 
     </div>
   </div>
 </div>
 
 
-<div class="card-deck container">
+<div class="container body-subscription">
   <% @subscriptions.each do |subscription| %>
   <div class="card ">
     <div class="card-body">
@@ -20,7 +20,9 @@
       <p class="card-text"><%= subscription.description.first(140) %></p>
     </div>
     <div class="card-footer">
-      <small class="text-muted float-right bg-transparent"><%= link_to "Voir la demande", subscription_path(subscription), class:'seven-button'  %></small>
+      <%= link_to "Accepter" , subscription_path(subscription, subscription: {status: 'Accepted'}), method: :patch, class: "seven-button" %>
+      <%= link_to "Refuser" , subscription_path(subscription, subscription: {status: 'Refused'}), method: :patch, class: "seven-button" %>
+
     </div>
   </div>
   <% end %>

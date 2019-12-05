@@ -30,7 +30,7 @@ class My::SubscriptionsController < ApplicationController
 
   def update
     if @subscription.update(subscription_params)
-      redirect_to my_subscription_path(@subscription)
+      redirect_to my_subscriptions_path
     else
       render :edit
     end

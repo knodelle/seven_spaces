@@ -12,25 +12,27 @@
 </div>
 
 
-  <% @subscriptions.each do |subscription| %>
-<div class="subscription-container">
-    <div class="card-body">
-      <h5 class="card-title"><%= subscription.user.username %> vous a envoyé une demande d'accès</h5>
-      <p class="card-text"><%= subscription.description.first(140) %></p>
-    </div>
-    <div class="card-footer">
-      <br>
-      <%= link_to "Accepter" , subscription_path(subscription, subscription: {status: 'Accepted'}), method: :patch, class: "seven-button" %>
-      <%= link_to "Refuser" , subscription_path(subscription, subscription: {status: 'Refused'}), method: :patch, class: "seven-button" %>
-
-    </div>
-  <% end %>
-</div>
+<% @subscriptions.each do |subscription| %>
+  <div class="subscription-container my-4">
+      <div class="card-body">
+        <h5 class="card-title"><b><%= subscription.user.username %></b> vous a envoyé une demande d'accès</h5>
+        <p class="card-text">
+          <i class="fas fa-quote-left" style="font-size: 25px; color: grey;"></i>
+          <i><%= subscription.description %> Azertyu tyuiop rtyuio rtyuio</i>
+          <i class="fas fa-quote-right" style="font-size: 25px; color: grey;"></i>
+        </p>
+      </div>
+      <div>
+        <%= link_to "Accepter" , subscription_path(subscription, subscription: {status: 'Accepted'}), method: :patch, class: "seven-button" %>
+        <%= link_to "Refuser" , subscription_path(subscription, subscription: {status: 'Refused'}), method: :patch, class: "seven-button" %>
+      </div>
+  </div>
+<% end %>
 
 <div class='text-center mt-5'>
   <% if @subscriptions.size == 0 %>
-    <h3 class='mb-3'> Oups... ^^'</h1>
-    <p>On dirait que vous n'avez pas encore de demande pour rejoindre votre chatroom.</p>
+      <h3 class='mb-3'> Oups... ^^'</h1>
+      <p>On dirait que vous n'avez pas encore de demande pour rejoindre votre chatroom.</p>
   <% end %>
 </div>
 

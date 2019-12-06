@@ -1,8 +1,19 @@
 
-<div class="subscription-container">
-<div class="header-edit">
-  <h1>Créer un salon</h1>
+<div class="banner">
+<div class='searchpage '>
+    <div class="container home-text text-center">
+      <div class="header">
+      <h1>Créer un salon</h1>
+      <p>Insérez un maximum de tags pour décrire votre salon de discussion</p>
+    </div>
+    </div>
+  </div>
 </div>
+
+
+
+
+<div class="subscription-container mt-5">
   <div class="container">
     <%= simple_form_for [:my, @chat_room] do |f| %>
       <%= f.error_notification %>
